@@ -1,0 +1,176 @@
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Business Decision BD0010_001</title>
+<style type="text/css">
+body {
+   font-family: Arial;
+   font-size: 75%;
+   background-color:white;
+   color: #000;
+   margin-left:5em;
+}
+* {
+margin: 0;
+padding: 0;
+}
+h1,h2,h3 {margin-bottom:0.25em; margin-top:1em;}
+p {margin-bottom:0.5em;}
+table, th, td {
+   border:1px solid black;
+   border-spacing:0;
+   border-collapse:collapse;
+   padding:0.2em;
+   table-layout:fixed
+   font-size: 75%;
+   font-weight:normal;
+}
+.th_nr {
+   font-size:70%;
+}
+.th_nr_head {
+   width:4em;
+   vertical-align:bottom;
+}
+.th_comment_head {
+   vertical-align:bottom;
+   background-color:#66ccff;   
+}
+.th_error_head {
+   background-color:#ff4500; 
+   text-align:left;
+}
+.th_head {
+   font-weight:bold;
+   text-align:left;
+   background-color:#000000;
+   color:#ffffff;
+}
+.th_condition {
+   background-color:#66ffff;
+}
+.th_conclusion {
+   background-color:#66ccff;
+}
+.th_glossary_head {
+   background-color:#e8e8e8;
+   font-weight:bold;
+   text-align:left;
+}
+.th_glossary {
+   text-align:left;
+}
+.th_d_info {
+   text-align: left;
+   width: 30em;
+}
+.th_d_info_descr {
+   background-color:#e8e8e8;
+   text-align: left;
+   font-weight:bold;
+}
+</style>
+</head>
+<body>
+<h2>Business Decision Model</h2>
+<hr>
+<h1>BD0010_001 - Versandart Fragebogen bestimmen</h1> 
+					(nur f&uuml;r internen Gebrauch) 
+				<br>
+<br>
+<h2>Overview Rule Families</h2>
+<p>RF0044_001 - Versandart Fragebogen<br>.      -  RF0043_001 - Liste Interview-Frage<br>
+</p>
+<h2>Rule Family RF0044_001 - Versandart Fragebogen</h2>
+<p>single Hit</p>
+<table>
+<thead>
+<tr>
+<th class="th_nr_head" rowspan="3">Pattern Nr.</th><th class="th_nr_head" rowspan="3">Nr.</th><th class="th_head" colspan="5">DecisionTable Versandart Fragebogen</th>
+</tr>
+<tr>
+<th class="th_condition" colspan="2">Condition</th><th class="th_conclusion" colspan="2">Conclusion</th><th class="th_comment_head">Message</th>
+</tr>
+<tr>
+<th class="th_condition" colspan="2">Liste Interview-Frage</th><th class="th_conclusion" colspan="2">Versandart-Fragebogen</th><th class="th_comment_head"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="th_nr">1</th><th class="th_nr">1</th><th>include</th><th>3, 4</th><th>is</th><th>eMail</th><th class="th_nr"></th>
+</tr>
+<tr>
+<th class="th_nr">1</th><th class="th_nr">2</th><th>include</th><th>5, 6</th><th>is</th><th>Post</th><th class="th_nr"></th>
+</tr>
+<tr>
+<th class="th_nr">1</th><th class="th_nr">3</th><th>include</th><th>7, 8</th><th>is</th><th>pers&ouml;nlich</th><th class="th_nr"></th>
+</tr>
+</tbody>
+</table>
+<p>
+<br>
+</p>
+<h2>Rule Family RF0043_001 - Liste Interview-Frage</h2>
+<p> (belongs to: RF0044_001), single Hit</p>
+<table>
+<thead>
+<tr>
+<th class="th_nr_head" rowspan="3">Pattern Nr.</th><th class="th_nr_head" rowspan="3">Nr.</th><th class="th_head" colspan="5">DecisionTable Liste Interview-Frage</th>
+</tr>
+<tr>
+<th class="th_condition" colspan="2">Condition</th><th class="th_conclusion" colspan="2">Conclusion</th><th class="th_comment_head">Message</th>
+</tr>
+<tr>
+<th class="th_condition" colspan="2">Beruf</th><th class="th_conclusion" colspan="2">Liste Interview-Frage</th><th class="th_comment_head"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="th_nr">1</th><th class="th_nr">1</th><th>is one of</th><th>Consultant, Controller</th><th>are</th><th>1, 2, 3, 4</th><th class="th_nr"></th>
+</tr>
+<tr>
+<th class="th_nr">1</th><th class="th_nr">2</th><th>is one of</th><th>G&auml;rtner, Handwerker</th><th>are</th><th>1, 2, 5, 6</th><th class="th_nr"></th>
+</tr>
+<tr>
+<th class="th_nr">1</th><th class="th_nr">3</th><th>is one of</th><th>Verk&auml;ufer, Vertreter</th><th>are</th><th>1, 2, 7, 8</th><th class="th_nr"></th>
+</tr>
+</tbody>
+</table>
+<p>
+<br>
+</p>
+<br>
+<hr>
+<h2>Glossary zu Versandart Fragebogen bestimmen</h2>
+<p>Anzahl Fakten: 3</p>
+<table>
+<thead>
+<tr>
+<th colspan="6" class="th_head">Glossary Versandart Fragebogen bestimmen</th>
+</tr>
+<tr>
+<th class="th_glossary_head">Gesch&auml;ftsobjekt</th><th class="th_glossary_head">Faktentyp</th><th class="th_glossary_head">Kardinalit&auml;t</th><th class="th_glossary_head">In-/Ouput</th><th class="th_glossary_head">fachlicher Datentyp</th><th class="th_glossary_head">Werte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="th_glossary">Fragebogen</th><th class="th_glossary">Liste Interview-Frage</th><th class="th_glossary">multi</th><th class="th_glossary">Interim Conclusion</th><th class="th_glossary">Aufz&auml;hlung</th><th class="th_glossary">Value Range: 1, 2, 3, 4, 5, 6, 7, 8</th>
+</tr>
+<tr>
+<th class="th_glossary">Fragebogen</th><th class="th_glossary">Versandart-Fragebogen</th><th class="th_glossary">single</th><th class="th_glossary">Decision Conclusion</th><th class="th_glossary">Aufz&auml;hlung</th><th class="th_glossary">Value Range: eMail, Post, pers&ouml;nlich</th>
+</tr>
+<tr>
+<th class="th_glossary">Person</th><th class="th_glossary">Beruf</th><th class="th_glossary">single</th><th class="th_glossary">Condition</th><th class="th_glossary">Aufz&auml;hlung</th><th class="th_glossary">Value Range: Consultant, Controller, G&auml;rtner, Handwerker, Verk&auml;ufer, Vertreter</th>
+</tr>
+</tbody>
+</table>
+<p>
+<br>
+</p>
+<hr>
+<h2>Decision Info:</h2>
+<br>
+<hr>
+<small>Schemaversion: business_decision_v1.3.xsd</small>
+</body>
+</html>

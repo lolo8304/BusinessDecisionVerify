@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConceptElementMapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="fachbegriff_element_mapping_v0.1.xsd">
+  <decisionId>BD0020_001</decisionId>
+  <ConceptElement>
+      <businessObject>Fahrer</businessObject>
+      <factTypeName>Aussetzung Fahrerlaubnis</factTypeName>
+      <variableName>AUSSETZUNG_FAHR_ERLAUBNIS_CDMF</variableName>
+      <businessConcept>Fahrer</businessConcept>
+      <attributeName>austzgFahrErlaubCdmf</attributeName>
+      <domainKey>SMALLINT</domainKey>
+        <CodeNaming>
+          <code>1</code>
+          <naming>erforderlich</naming>
+        </CodeNaming>
+        <CodeNaming>
+          <code>2</code>
+          <naming>empfohlen</naming>
+        </CodeNaming>
+        <CodeNaming>
+          <code>3</code>
+          <naming>nicht erforderlich</naming>
+        </CodeNaming>
+      </ConceptElement>
+  <ConceptElement>
+      <businessObject>Physis-Test</businessObject>
+      <factTypeName>Alter Reaktionstest in Monaten</factTypeName>
+      <variableName>ALTER_REAKTION_TEST_IN_MONAT</variableName>
+      <businessConcept>PhysisTest</businessConcept>
+      <attributeName>alterReaktnTestInMonat</attributeName>
+      <domainKey>SMALLINT</domainKey>
+      </ConceptElement>
+  <ConceptElement>
+      <businessObject>Physis-Test</businessObject>
+      <factTypeName>Aktualit&#228;t Reaktionstest</factTypeName>
+      <variableName>AKTUALITAET_REAKTION_TEST_CDMF</variableName>
+      <businessConcept>PhysisTest</businessConcept>
+      <attributeName>aktlttReaktnTestCdmf</attributeName>
+      <domainKey>SMALLINT</domainKey>
+        <CodeNaming>
+          <code>1</code>
+          <naming>abgelaufen</naming>
+        </CodeNaming>
+        <CodeNaming>
+          <code>2</code>
+          <naming>veraltet</naming>
+        </CodeNaming>
+        <CodeNaming>
+          <code>3</code>
+          <naming>aktuell</naming>
+        </CodeNaming>
+      </ConceptElement>
+  <ConceptElement>
+      <businessObject>Physis-Test</businessObject>
+      <factTypeName>Alter Sehtest in Monaten</factTypeName>
+      <variableName>ALTER_SEH_TEST_IN_MONAT</variableName>
+      <businessConcept>PhysisTest</businessConcept>
+      <attributeName>alterSehTestInMonat</attributeName>
+      <domainKey>SMALLINT</domainKey>
+      </ConceptElement>
+  <ConceptElement>
+      <businessObject>Physis-Test</businessObject>
+      <factTypeName>Aktualit&#228;t Sehtest</factTypeName>
+      <variableName>AKTUALITAET_SEH_TEST_CDMF</variableName>
+      <businessConcept>PhysisTest</businessConcept>
+      <attributeName>aktlttSehTestCdmf</attributeName>
+      <domainKey>SMALLINT</domainKey>
+        <CodeNaming>
+          <code>1</code>
+          <naming>abgelaufen</naming>
+        </CodeNaming>
+        <CodeNaming>
+          <code>2</code>
+          <naming>veraltet</naming>
+        </CodeNaming>
+        <CodeNaming>
+          <code>3</code>
+          <naming>aktuell</naming>
+        </CodeNaming>
+      </ConceptElement>
+  <ConceptElement>
+      <businessObject>Physis-Test</businessObject>
+      <factTypeName>Test Physis</factTypeName>
+      <variableName>TEST_PHYSIS_CDMF</variableName>
+      <businessConcept>PhysisTest</businessConcept>
+      <attributeName>testPhysisCdmf</attributeName>
+      <domainKey>SMALLINT</domainKey>
+        <CodeNaming>
+          <code>1</code>
+          <naming>erforderlich</naming>
+        </CodeNaming>
+        <CodeNaming>
+          <code>2</code>
+          <naming>empfohlen</naming>
+        </CodeNaming>
+        <CodeNaming>
+          <code>3</code>
+          <naming>nicht erforderlich</naming>
+        </CodeNaming>
+      </ConceptElement>
+  <ConceptElement>
+      <businessObject>Psycho-Test</businessObject>
+      <factTypeName>Anzahl Verkehrsverst&#246;sse letzte 12 Monate</factTypeName>
+      <variableName>ANZAHL_VERKEHR_VERSTOSS_IN_12_MONAT</variableName>
+      <businessConcept>PsychoTest</businessConcept>
+      <attributeName>anzVkehrVstssIn12Monat</attributeName>
+      <domainKey>SMALLINT</domainKey>
+      </ConceptElement>
+  <ConceptElement>
+      <businessObject>Psycho-Test</businessObject>
+      <factTypeName>inkl. schwere Verkehrsverst&#246;sse</factTypeName>
+      <variableName>KZ_VERKEHR_VERSTOSS_SCHWER_INKLUSIV</variableName>
+      <businessConcept>PsychoTest</businessConcept>
+      <attributeName>kzVkehrVstssSchwerInkl</attributeName>
+      <domainKey>SMALLINT</domainKey>      
+        <CodeNaming>
+          <code>0</code>
+          <naming>nein</naming>
+        </CodeNaming>
+        <CodeNaming>
+          <code>1</code>
+          <naming>ja</naming>
+        </CodeNaming>
+      </ConceptElement>
+  <ConceptElement>
+      <businessObject>Psycho-Test</businessObject>
+      <factTypeName>Bewertung Fahrverhalten</factTypeName>
+      <variableName>BEWERTUNG_FAHR_VERHALTEN_CDMF</variableName>
+      <businessConcept>PsychoTest</businessConcept>
+      <attributeName>bwrtgFahrVhltnCdmf</attributeName>
+      <domainKey>SMALLINT</domainKey>
+        <CodeNaming>
+          <code>1</code>
+          <naming>gef&#228;hrlich</naming>
+        </CodeNaming>
+        <CodeNaming>
+          <code>2</code>
+          <naming>auff&#228;llig</naming>
+        </CodeNaming>
+        <CodeNaming>
+          <code>3</code>
+          <naming>ok</naming>
+        </CodeNaming>
+      </ConceptElement>
+  <ConceptElement>
+      <businessObject>Psycho-Test</businessObject>
+      <factTypeName>Test Psyche</factTypeName>
+      <variableName>TEST_PSYCHE_CDMF</variableName>
+      <businessConcept>PsychoTest</businessConcept>
+      <attributeName>testPsycheCdmf</attributeName>
+      <domainKey>SMALLINT</domainKey>
+        <CodeNaming>
+          <code>1</code>
+          <naming>erforderlich</naming>
+        </CodeNaming>
+        <CodeNaming>
+          <code>2</code>
+          <naming>empfohlen</naming>
+        </CodeNaming>
+        <CodeNaming>
+          <code>3</code>
+          <naming>nicht erforderlich</naming>
+        </CodeNaming>
+      </ConceptElement>
+</ConceptElementMapping>

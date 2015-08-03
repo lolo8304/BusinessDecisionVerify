@@ -1,0 +1,276 @@
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Business Decision BD0007_001 Concept Element Mapping</title>
+<style type="text/css">
+body {
+   font-family: Arial;
+   font-size: 75%;
+   background-color:white;
+   color: #000;
+   margin-left:5em;
+}
+* {
+margin: 0;
+padding: 0;
+}
+h1,h2,h3 {margin-bottom:0.25em; margin-top:1em;}
+p {margin-bottom:0.5em;}
+table, th, td {
+   border:1px solid black;
+   border-spacing:0;
+   border-collapse:collapse;
+   padding:0.2em;
+   table-layout:fixed
+   font-size: 75%;
+   font-weight:normal;
+}
+.th_nr {
+   font-size:70%;
+}
+.th_nr_head {
+   width:4em;
+   vertical-align:bottom;
+}
+.th_comment_head {
+   vertical-align:bottom;
+   background-color:#66ccff;   
+}
+.th_error_head {
+   background-color:#ff4500; 
+   text-align:left;
+}
+.th_head {
+   font-weight:bold;
+   text-align:left;
+   background-color:#000000;
+   color:#ffffff;
+}
+.th_condition {
+   background-color:#66ffff;
+}
+.th_conclusion {
+   background-color:#66ccff;
+}
+.th_glossary_head {
+   background-color:#e8e8e8;
+   font-weight:bold;
+   text-align:left;
+}
+.th_glossary {
+   text-align:left;
+}
+.th_d_info {
+   text-align: left;
+   width: 30em;
+}
+.th_d_info_descr {
+   background-color:#e8e8e8;
+   text-align: left;
+   font-weight:bold;
+}
+</style>
+</head>
+<body>
+<h2>Business Decision</h2>
+<hr>
+<h1>BD0007_001 -  Concept Element Mapping
+			    </h1> 
+					(nur f&uuml;r internen Gebrauch) 
+				<br>
+<br>
+<table>
+<thead>
+<tr>
+<th colspan="6" class="th_head">Concept Element Mapping for Business Decision BD0007_001</th>
+</tr>
+<tr>
+<th class="th_glossary_head">Gesch&auml;ftsobjekt</th><th class="th_glossary_head">Faktentyp</th><th class="th_glossary_head">Variable Name</th><th class="th_glossary_head">Business Concept</th><th class="th_glossary_head">Attribute Name</th><th class="th_glossary_head">DomainKey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="th_glossary">Kredit</th><th class="th_glossary">Ausfallwahrscheinlichkeit</th><th class="th_glossary">AUSFALL_WAHRSCHEINLICHKEIT_CDKR</th><th class="th_glossary">Kredit</th><th class="th_glossary">ausflWhrschktCdkr</th><th class="th_glossary">SMALLINT</th>
+</tr>
+<tr>
+<th class="th_glossary">Antragsteller</th><th class="th_glossary">Besch&auml;ftigungssituation</th><th class="th_glossary">BESCHAEFTIGUNG_ZUSTAND_CDKR</th><th class="th_glossary">AntragSteller</th><th class="th_glossary">bschaeftgZustCdkr</th><th class="th_glossary">SMALLINT</th>
+</tr>
+<tr>
+<th class="th_glossary">Antragsteller</th><th class="th_glossary">Kreditbelastung</th><th class="th_glossary">KREDIT_BELASTUNG_CDKR</th><th class="th_glossary">AntragSteller</th><th class="th_glossary">krdtBlastgCdkr</th><th class="th_glossary">SMALLINT</th>
+</tr>
+<tr>
+<th class="th_glossary">Antragsteller</th><th class="th_glossary">Hypothekenbelastung</th><th class="th_glossary">HYPOTHEK_BELASTUNG_CDKR</th><th class="th_glossary">AntragSteller</th><th class="th_glossary">hyptkBlastgCdkr</th><th class="th_glossary">SMALLINT</th>
+</tr>
+<tr>
+<th class="th_glossary">Kreditbelastung</th><th class="th_glossary">Studentenkredit</th><th class="th_glossary">STUDENT_KREDIT_HOEHE_CDKR</th><th class="th_glossary">KreditBelastung</th><th class="th_glossary">studtKrdtHoeheCdkr</th><th class="th_glossary">SMALLINT</th>
+</tr>
+<tr>
+<th class="th_glossary">Kreditbelastung</th><th class="th_glossary">Konsumkredit</th><th class="th_glossary">KONSUM_KREDIT_HOEHE_CDKR</th><th class="th_glossary">KreditBelastung</th><th class="th_glossary">konsumKrdtHoeheCdkr</th><th class="th_glossary">SMALLINT</th>
+</tr>
+<tr>
+<th class="th_glossary">Besch&auml;ftigungssitution</th><th class="th_glossary">Anzahl Jahre aktueller Job</th><th class="th_glossary">ANZAHL_JAHR_IN_JOB_AKTUELL</th><th class="th_glossary">BeschaeftigungSituation</th><th class="th_glossary">anzJahrJobAktl</th><th class="th_glossary">SMALLINT</th>
+</tr>
+<tr>
+<th class="th_glossary">Besch&auml;ftigungssitution</th><th class="th_glossary">Anzahl Jobs letzte 5 Jahre</th><th class="th_glossary">ANZAHL_JOB_IN_5_JAHR</th><th class="th_glossary">BeschaeftigungSituation</th><th class="th_glossary">anzJobIn5Jahr</th><th class="th_glossary">SMALLINT</th>
+</tr>
+</tbody>
+</table>
+<br>
+<hr>
+<h2>Code Mappings</h2>
+<br>
+<table>
+<thead>
+<tr>
+<th colspan="2" class="th_head">Code Mapping zu Ausfallwahrscheinlichkeit</th>
+</tr>
+<tr>
+<th colspan="2" class="th_glossary">Attribut: Kredit ausflWhrschktCdkr</th>
+</tr>
+<tr>
+<th class="th_glossary_head">Code</th><th class="th_glossary_head">Bezeichnung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="th_glossary">1</th><th class="th_glossary">hoch</th>
+</tr>
+<tr>
+<th class="th_glossary">2</th><th class="th_glossary">mittel</th>
+</tr>
+<tr>
+<th class="th_glossary">3</th><th class="th_glossary">gering</th>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<table>
+<thead>
+<tr>
+<th colspan="2" class="th_head">Code Mapping zu Besch&auml;ftigungssituation</th>
+</tr>
+<tr>
+<th colspan="2" class="th_glossary">Attribut: AntragSteller bschaeftgZustCdkr</th>
+</tr>
+<tr>
+<th class="th_glossary_head">Code</th><th class="th_glossary_head">Bezeichnung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="th_glossary">1</th><th class="th_glossary">gut</th>
+</tr>
+<tr>
+<th class="th_glossary">2</th><th class="th_glossary">mittel</th>
+</tr>
+<tr>
+<th class="th_glossary">3</th><th class="th_glossary">schlecht</th>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<table>
+<thead>
+<tr>
+<th colspan="2" class="th_head">Code Mapping zu Kreditbelastung</th>
+</tr>
+<tr>
+<th colspan="2" class="th_glossary">Attribut: AntragSteller krdtBlastgCdkr</th>
+</tr>
+<tr>
+<th class="th_glossary_head">Code</th><th class="th_glossary_head">Bezeichnung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="th_glossary">1</th><th class="th_glossary">hoch</th>
+</tr>
+<tr>
+<th class="th_glossary">2</th><th class="th_glossary">mittel</th>
+</tr>
+<tr>
+<th class="th_glossary">3</th><th class="th_glossary">gering</th>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<table>
+<thead>
+<tr>
+<th colspan="2" class="th_head">Code Mapping zu Hypothekenbelastung</th>
+</tr>
+<tr>
+<th colspan="2" class="th_glossary">Attribut: AntragSteller hyptkBlastgCdkr</th>
+</tr>
+<tr>
+<th class="th_glossary_head">Code</th><th class="th_glossary_head">Bezeichnung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="th_glossary">1</th><th class="th_glossary">hoch</th>
+</tr>
+<tr>
+<th class="th_glossary">2</th><th class="th_glossary">gering</th>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<table>
+<thead>
+<tr>
+<th colspan="2" class="th_head">Code Mapping zu Studentenkredit</th>
+</tr>
+<tr>
+<th colspan="2" class="th_glossary">Attribut: KreditBelastung studtKrdtHoeheCdkr</th>
+</tr>
+<tr>
+<th class="th_glossary_head">Code</th><th class="th_glossary_head">Bezeichnung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="th_glossary">1</th><th class="th_glossary">hoch</th>
+</tr>
+<tr>
+<th class="th_glossary">2</th><th class="th_glossary">niedrig</th>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<table>
+<thead>
+<tr>
+<th colspan="2" class="th_head">Code Mapping zu Konsumkredit</th>
+</tr>
+<tr>
+<th colspan="2" class="th_glossary">Attribut: KreditBelastung konsumKrdtHoeheCdkr</th>
+</tr>
+<tr>
+<th class="th_glossary_head">Code</th><th class="th_glossary_head">Bezeichnung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="th_glossary">1</th><th class="th_glossary">hoch</th>
+</tr>
+<tr>
+<th class="th_glossary">2</th><th class="th_glossary">mittel</th>
+</tr>
+<tr>
+<th class="th_glossary">3</th><th class="th_glossary">niedrig</th>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<br>
+<hr>
+<small>Schemaversion: fachbegriff_element_mapping_v0.1.xsd</small>
+</body>
+</html>

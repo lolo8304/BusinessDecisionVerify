@@ -1,0 +1,423 @@
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Business Decision BD0020_001 - Rule Family Testcases</title>
+<style type="text/css">
+body {
+   font-family: Arial;
+   font-size: 75%;
+   background-color:white;
+   color: #000;
+   margin-left:5em;
+}
+* {
+margin: 0;
+padding: 0;
+}
+h1,h2,h3 {margin-bottom:0.25em; margin-top:1em;}
+p {margin-bottom:0.5em;}
+table, th, td {
+   border:1px solid black;
+   border-spacing:0;
+   border-collapse:collapse;
+   padding:0.2em;
+   table-layout:fixed
+   font-size: 75%;
+   font-weight:normal;
+}
+.th_nr {
+   font-size:70%;
+}
+.th_nr_head {
+   width:4em;
+   vertical-align:bottom;
+}
+.th_comment_head {
+   vertical-align:bottom;
+   background-color:#66ccff;   
+}
+.th_error_head {
+   background-color:#ff4500; 
+   text-align:left;
+}
+.th_head {
+   font-weight:bold;
+   text-align:left;
+   background-color:#000000;
+   color:#ffffff;
+}
+.th_condition {
+   background-color:#66ffff;
+}
+.th_conclusion {
+   background-color:#66ccff;
+}
+.th_glossary_head {
+   background-color:#e8e8e8;
+   font-weight:bold;
+   text-align:left;
+}
+.th_glossary {
+   text-align:left;
+}
+.th_d_info {
+   text-align: left;
+   width: 30em;
+}
+.th_d_info_descr {
+   background-color:#e8e8e8;
+   text-align: left;
+   font-weight:bold;
+}
+</style>
+</head>
+<body>
+<h2>Business Decision Model</h2>
+<hr>
+<h1>BD0020_001 - Aussetzung Fahrerlaubnis bestimmen</h1> 
+					(nur f&uuml;r internen Gebrauch) 
+				<br>
+<br>
+<h2>Testf&auml;lle zu den einzelnen DecisionTables</h2>
+<br>
+<h2>Rule Family RF0055_001 - Aussetzung Fahrerlaubnis</h2>
+<p>single Hit</p>
+<table>
+<thead>
+<tr>
+<th class="th_nr_head" rowspan="3">Nr.</th><th class="th_head" colspan="6">TestData Aussetzung Fahrerlaubnis</th>
+</tr>
+<tr>
+<th class="th_condition">Input</th><th class="th_condition">Input</th><th class="th_conclusion">expected Output</th><th class="th_comment_head">derived Output</th><th class="th_comment_head">Execution</th><th class="th_error_head">Error</th>
+</tr>
+<tr>
+<th class="th_condition">Test Physis</th><th class="th_condition">Test Psyche</th><th class="th_conclusion">Aussetzung Fahrerlaubnis</th><th class="th_conclusion">Aussetzung Fahrerlaubnis</th><th class="th_conclusion">Rule ID</th><th class="th_error_head">Message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th></th><th>erforderlich</th><th>erforderlich</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>erforderlich</th><th>empfohlen</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>erforderlich</th><th>nicht erforderlich</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>empfohlen</th><th>erforderlich</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>empfohlen</th><th>empfohlen</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>empfohlen</th><th>nicht erforderlich</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>nicht erforderlich</th><th>erforderlich</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>nicht erforderlich</th><th>empfohlen</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>nicht erforderlich</th><th>nicht erforderlich</th><th></th><th></th><th></th><th></th>
+</tr>
+</tbody>
+</table>
+<p>
+<br>
+</p>
+<h2>Rule Family RF0054_001 - Test Psyche</h2>
+<p> (belongs to: RF0055_001), single Hit</p>
+<table>
+<thead>
+<tr>
+<th class="th_nr_head" rowspan="3">Nr.</th><th class="th_head" colspan="5">TestData Test Psyche</th>
+</tr>
+<tr>
+<th class="th_condition">Input</th><th class="th_conclusion">expected Output</th><th class="th_comment_head">derived Output</th><th class="th_comment_head">Execution</th><th class="th_error_head">Error</th>
+</tr>
+<tr>
+<th class="th_condition">Bewertung Fahrverhalten</th><th class="th_conclusion">Test Psyche</th><th class="th_conclusion">Test Psyche</th><th class="th_conclusion">Rule ID</th><th class="th_error_head">Message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th></th><th>gef&auml;hrlich</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>auff&auml;llig</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>ok</th><th></th><th></th><th></th><th></th>
+</tr>
+</tbody>
+</table>
+<p>
+<br>
+</p>
+<h2>Rule Family RF0053_001 - Bewertung Fahrverhalten</h2>
+<p> (belongs to: RF0054_001), single Hit</p>
+<table>
+<thead>
+<tr>
+<th class="th_nr_head" rowspan="3">Nr.</th><th class="th_head" colspan="6">TestData Bewertung Fahrverhalten</th>
+</tr>
+<tr>
+<th class="th_condition">Input</th><th class="th_condition">Input</th><th class="th_conclusion">expected Output</th><th class="th_comment_head">derived Output</th><th class="th_comment_head">Execution</th><th class="th_error_head">Error</th>
+</tr>
+<tr>
+<th class="th_condition">Anzahl Verkehrsverst&ouml;sse letzte 12 Monate</th><th class="th_condition">inkl. schwere Verkehrsverst&ouml;sse</th><th class="th_conclusion">Bewertung Fahrverhalten</th><th class="th_conclusion">Bewertung Fahrverhalten</th><th class="th_conclusion">Rule ID</th><th class="th_error_head">Message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th></th><th>1</th><th>ja</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>1</th><th>nein</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>2</th><th>ja</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>2</th><th>nein</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>3</th><th>ja</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>3</th><th>nein</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>4</th><th>ja</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>4</th><th>nein</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>5</th><th>ja</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>5</th><th>nein</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>6</th><th>ja</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>6</th><th>nein</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>7</th><th>ja</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>7</th><th>nein</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>8</th><th>ja</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>8</th><th>nein</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>9</th><th>ja</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>9</th><th>nein</th><th></th><th></th><th></th><th></th>
+</tr>
+</tbody>
+</table>
+<p>
+<br>
+</p>
+<h2>Rule Family RF0052_001 - Test Physis</h2>
+<p> (belongs to: RF0055_001), single Hit</p>
+<table>
+<thead>
+<tr>
+<th class="th_nr_head" rowspan="3">Nr.</th><th class="th_head" colspan="6">TestData Test Physis</th>
+</tr>
+<tr>
+<th class="th_condition">Input</th><th class="th_condition">Input</th><th class="th_conclusion">expected Output</th><th class="th_comment_head">derived Output</th><th class="th_comment_head">Execution</th><th class="th_error_head">Error</th>
+</tr>
+<tr>
+<th class="th_condition">Aktualit&auml;t Reaktionstest</th><th class="th_condition">Aktualit&auml;t Sehtest</th><th class="th_conclusion">Test Physis</th><th class="th_conclusion">Test Physis</th><th class="th_conclusion">Rule ID</th><th class="th_error_head">Message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th></th><th>abgelaufen</th><th>abgelaufen</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>abgelaufen</th><th>veraltet</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>abgelaufen</th><th>aktuell</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>veraltet</th><th>abgelaufen</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>veraltet</th><th>veraltet</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>veraltet</th><th>aktuell</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>aktuell</th><th>abgelaufen</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>aktuell</th><th>veraltet</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>aktuell</th><th>aktuell</th><th></th><th></th><th></th><th></th>
+</tr>
+</tbody>
+</table>
+<p>
+<br>
+</p>
+<h2>Rule Family RF0051_001 - Aktualit&auml;t Sehtest</h2>
+<p> (belongs to: RF0052_001), single Hit</p>
+<table>
+<thead>
+<tr>
+<th class="th_nr_head" rowspan="3">Nr.</th><th class="th_head" colspan="5">TestData Aktualit&auml;t Sehtest</th>
+</tr>
+<tr>
+<th class="th_condition">Input</th><th class="th_conclusion">expected Output</th><th class="th_comment_head">derived Output</th><th class="th_comment_head">Execution</th><th class="th_error_head">Error</th>
+</tr>
+<tr>
+<th class="th_condition">Alter Sehtest in Monaten</th><th class="th_conclusion">Aktualit&auml;t Sehtest</th><th class="th_conclusion">Aktualit&auml;t Sehtest</th><th class="th_conclusion">Rule ID</th><th class="th_error_head">Message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th></th><th>5</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>8</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>9</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>11</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>12</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>13</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>14</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>15</th><th></th><th></th><th></th><th></th>
+</tr>
+</tbody>
+</table>
+<p>
+<br>
+</p>
+<h2>Rule Family RF0050_001 - Aktualit&auml;t Reaktionstest</h2>
+<p> (belongs to: RF0052_001), single Hit</p>
+<table>
+<thead>
+<tr>
+<th class="th_nr_head" rowspan="3">Nr.</th><th class="th_head" colspan="5">TestData Aktualit&auml;t Reaktionstest</th>
+</tr>
+<tr>
+<th class="th_condition">Input</th><th class="th_conclusion">expected Output</th><th class="th_comment_head">derived Output</th><th class="th_comment_head">Execution</th><th class="th_error_head">Error</th>
+</tr>
+<tr>
+<th class="th_condition">Alter Reaktionstest in Monaten</th><th class="th_conclusion">Aktualit&auml;t Sehtest</th><th class="th_conclusion">Aktualit&auml;t Sehtest</th><th class="th_conclusion">Rule ID</th><th class="th_error_head">Message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th></th><th>5</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>8</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>9</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>12</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>15</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>18</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>24</th><th></th><th></th><th></th><th></th>
+</tr>
+<tr>
+<th></th><th>25</th><th></th><th></th><th></th><th></th>
+</tr>
+</tbody>
+</table>
+<p>
+<br>
+</p>
+<br>
+<hr>
+<h2>Glossary zu Aussetzung Fahrerlaubnis bestimmen</h2>
+<p>Anzahl Fakten: 10</p>
+<table>
+<thead>
+<tr>
+<th colspan="6" class="th_head">Glossary Aussetzung Fahrerlaubnis bestimmen</th>
+</tr>
+<tr>
+<th class="th_glossary_head">Gesch&auml;ftsobjekt</th><th class="th_glossary_head">Faktentyp</th><th class="th_glossary_head">Kardinalit&auml;t</th><th class="th_glossary_head">In-/Ouput</th><th class="th_glossary_head">fachlicher Datentyp</th><th class="th_glossary_head">Werte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="th_glossary">Fahrer</th><th class="th_glossary">Aussetzung Fahrerlaubnis</th><th class="th_glossary">single</th><th class="th_glossary">Decision Conclusion</th><th class="th_glossary">Aufz&auml;hlung</th><th class="th_glossary">Value Range: erforderlich, empfohlen, nicht erforderlich</th>
+</tr>
+<tr>
+<th class="th_glossary">Physis-Test</th><th class="th_glossary">Alter Reaktionstest in Monaten</th><th class="th_glossary">single</th><th class="th_glossary">Condition</th><th class="th_glossary">Zahl</th><th class="th_glossary">Sample Values: 5, 8, 9, 12, 15, 18, 24, 25</th>
+</tr>
+<tr>
+<th class="th_glossary">Physis-Test</th><th class="th_glossary">Aktualit&auml;t Reaktionstest</th><th class="th_glossary">single</th><th class="th_glossary">Condition</th><th class="th_glossary">Aufz&auml;hlung</th><th class="th_glossary">Value Range: abgelaufen, veraltet, aktuell</th>
+</tr>
+<tr>
+<th class="th_glossary">Physis-Test</th><th class="th_glossary">Alter Sehtest in Monaten</th><th class="th_glossary">single</th><th class="th_glossary">Condition</th><th class="th_glossary">Zahl</th><th class="th_glossary">Sample Values: 5, 8, 9, 11, 12, 13, 14, 15</th>
+</tr>
+<tr>
+<th class="th_glossary">Physis-Test</th><th class="th_glossary">Aktualit&auml;t Sehtest</th><th class="th_glossary">single</th><th class="th_glossary">Interim Conclusion</th><th class="th_glossary">Aufz&auml;hlung</th><th class="th_glossary">Value Range: abgelaufen, veraltet, aktuell</th>
+</tr>
+<tr>
+<th class="th_glossary">Physis-Test</th><th class="th_glossary">Test Physis</th><th class="th_glossary">single</th><th class="th_glossary">Interim Conclusion</th><th class="th_glossary">Aufz&auml;hlung</th><th class="th_glossary">Value Range: erforderlich, empfohlen, nicht erforderlich</th>
+</tr>
+<tr>
+<th class="th_glossary">Phycho-Test</th><th class="th_glossary">Anzahl Verkehrsverst&ouml;sse letzte 12 Monate</th><th class="th_glossary">single</th><th class="th_glossary">Condition</th><th class="th_glossary">Zahl</th><th class="th_glossary">Sample Values: 1, 2, 3, 4, 5, 6, 7, 8, 9</th>
+</tr>
+<tr>
+<th class="th_glossary">Phycho-Test</th><th class="th_glossary">Bewertung Fahrverhalten</th><th class="th_glossary">single</th><th class="th_glossary">Interim Conclusion</th><th class="th_glossary">Aufz&auml;hlung</th><th class="th_glossary">Value Range: gef&auml;hrlich, auff&auml;llig, ok</th>
+</tr>
+<tr>
+<th class="th_glossary">Phycho-Test</th><th class="th_glossary">Test Psyche</th><th class="th_glossary">single</th><th class="th_glossary">Interim Conclusion</th><th class="th_glossary">Aufz&auml;hlung</th><th class="th_glossary">Value Range: erforderlich, empfohlen, nicht erforderlich</th>
+</tr>
+<tr>
+<th class="th_glossary">Phycho-Test</th><th class="th_glossary">inkl. schwere Verkehrsverst&ouml;sse</th><th class="th_glossary">single</th><th class="th_glossary">Condition</th><th class="th_glossary">Aufz&auml;hlung</th><th class="th_glossary">Value Range: ja, nein</th>
+</tr>
+</tbody>
+</table>
+<p>
+<br>
+</p>
+<hr>
+<h2>Decision Info:</h2>
+<br>
+<hr>
+<small>Schemaversion: business_decision_v1.3.xsd</small>
+</body>
+</html>

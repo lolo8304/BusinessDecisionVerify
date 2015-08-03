@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2015 rel. 3 sp1 (http://www.altova.com) by AXA Tech (AXA Technology Services) -->
+<!--  
+Business Decision Metadaten.
+
+basierend auf dem Modell Business Decision Version x.y by Wilfried Kurth, Cxxxxxxx
+
+Basierend auf diesem Schema werden Metadaten zu einer Business Decision in Form einer XML-Datei zur Verfügung gestellt resp. validiert. 
+Ausgehend von den IS Interface Metadaten können beispielsweise spezielle Sichten oder Implementierungsartefakte generiert werden.
+
+letzte Änderungen Version 1:
+- 24.06.2015: initial Version, analog zu is_intervace_v3.xsd (E. Ebersold, C160105)
+
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
+	<xs:element name="BusinessDecision" type="CT_BusinessDecision"/>
+	<xs:complexType name="CT_BusinessDecision">
+		<xs:sequence>
+			<xs:element name="decisionId" type="BusinessDecisionId" minOccurs="1"/>
+			<xs:element name="decisionName" type="xs:string" minOccurs="1"/>
+			<xs:element name="RuleFamily" type="CT_RuleFamily" minOccurs="1"/>
+			<xs:element name="FactTypeGlossary" type="CT_FactTypeGlossary" minOccurs="1"/>
+			<xs:element name="DecisionInfo" type="CT_DecisionInfo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CT_RuleFamily">
+		<xs:sequence>
+			<xs:element name="ruleFamilyId" type="RuleFamilyId" minOccurs="1"/>
+			<xs:element name="ruleFamilyName" type="xs:string" minOccurs="1"/>
+			<xs:element name="numberOfHits" type="NumberOfHitsCode" minOccurs="1"/>
+			<xs:element name="conditionFactTypeName" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="conclusionFactTypeName" type="xs:string" minOccurs="1"/>
+			<xs:element name="messageName" type="MessageNameCode" minOccurs="0"/>
+			<xs:element name="Rule" type="CT_Rule" minOccurs="1" maxOccurs="unbounded"/>
+			<!--nächste Ebene Rule Family unterhalb der Decision Rule Family-->
+			<xs:element name="RuleFamily" type="CT_RuleFamily" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CT_Rule">
+		<xs:sequence>
+			<xs:element name="rulePatternNo" type="xs:string" minOccurs="1"/>
+			<xs:element name="sequenceNo" type="xs:integer" minOccurs="1"/>
+			<!-- notwendig, xml hat impl. Reihenfolge -->
+			<xs:element name="Condition" type="CT_Condition" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Conclusion" type="CT_Conclusion" minOccurs="1"/>
+			<xs:element name="message" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CT_Condition">
+		<xs:sequence>
+			<xs:element name="factTypeName" type="xs:string" minOccurs="1"/>
+			<xs:element name="conditionOperatorName" type="ConditionOperatorNameCode" minOccurs="1"/>
+			<xs:element name="ConditionOperand" type="CT_ConditionOperand" minOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CT_Conclusion">
+		<xs:sequence>
+			<xs:element name="conclusionOperatorName" type="ConclusionOperatorNameCode" minOccurs="1"/>
+			<xs:element name="ConclusionOperand" type="CT_ConclusionOperand" minOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CT_ConditionOperand">
+		<xs:choice>
+			<xs:element name="singleOperandValue" type="xs:string" minOccurs="1"/>
+			<xs:element name="multiOperandValue" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="MinMaxOperand" type="CT_MinMaxOperand" minOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="CT_MinMaxOperand">
+		<xs:sequence>
+			<xs:element name="minValueIncluded" type="xs:boolean" minOccurs="1"/>
+			<xs:element name="minOperandValue" type="xs:string" minOccurs="1"/>
+			<xs:element name="maxOperandValue" type="xs:string" minOccurs="1"/>
+			<xs:element name="maxValueIncluded" type="xs:boolean" minOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CT_ConclusionOperand">
+		<xs:choice>
+			<xs:element name="singleOperandValue" type="xs:string" minOccurs="1"/>
+			<xs:element name="multiOperandValue" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="CT_FactTypeGlossary">
+		<xs:sequence>
+			<xs:element name="FactType" type="CT_FactType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CT_FactType">
+		<xs:sequence>
+			<xs:element name="businessObject" type="xs:string" minOccurs="1"/>
+			<xs:element name="factTypeName" type="xs:string" minOccurs="1"/>
+			<xs:element name="contentCardinality" type="ContentCardinalityCode" minOccurs="1"/>
+			<xs:element name="dataType" type="DataTypeCode" minOccurs="1"/>
+			<xs:choice>
+				<xs:element name="ValueRange" type="CT_ValueList" minOccurs="0"/>
+				<xs:element name="SampleValue" type="CT_ValueList" minOccurs="0"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CT_ValueList">
+		<xs:sequence>
+			<xs:element name="value" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CT_DecisionInfo">
+		<xs:sequence>
+			<xs:element name="validFrom" type="xs:date" minOccurs="1"/>
+			<xs:element name="validTo" type="xs:date" minOccurs="0"/>
+			<xs:element name="generationDate" type="xs:date" minOccurs="1"/>
+			<xs:element name="generationSystem" type="xs:string" minOccurs="1"/>
+			<xs:element name="decisionLifeCycleStatus" type="DecisionLifeCycleStatusCode" minOccurs="1"/>
+			<xs:element name="decisionProcessingStatus" type="DecisionProcessingStatusCode" minOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--  Code Werte -->
+	<xs:simpleType name="NumberOfHitsCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="single Hit"/>
+			<xs:enumeration value="multi Hit"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DataTypeCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Aufzählung"/>
+			<xs:enumeration value="Bool'scher Wert"/>
+			<xs:enumeration value="Datum"/>
+			<xs:enumeration value="Text"/>
+			<xs:enumeration value="Zahl"/>
+			<!--xs:enumeration value="Aufzählung"/ Anders lösen? Vgl. ValueRange und SampleValue-->
+			<!-- xs:enumeration value="Bool'scher Wert"/ Besser weg lassen?-->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ConditionOperatorNameCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="lt"><!--  nur für Zahlen --></xs:enumeration>
+			<xs:enumeration value="gt"/>
+			<xs:enumeration value="le"/>
+			<xs:enumeration value="ge"/>
+			<xs:enumeration value="eq"/>
+			<xs:enumeration value="ne"/>
+			<xs:enumeration value="between"/>
+			<xs:enumeration value="is"><!--  für String und Datum --></xs:enumeration>
+			<xs:enumeration value="is not"/>
+			<xs:enumeration value="is before"><!--  nur für Datum --></xs:enumeration>
+			<xs:enumeration value="is between"/>
+			<xs:enumeration value="is after"/>
+			<xs:enumeration value="contains"><!--  nur für String --></xs:enumeration>
+			<xs:enumeration value="is one of"/>
+			<xs:enumeration value="is not one of"/>
+			<xs:enumeration value="include"><!--  nur für Arrays --></xs:enumeration>
+			<xs:enumeration value="exclude"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ConclusionOperatorNameCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="eq"><!--  nur für Zahlen --></xs:enumeration>
+			<xs:enumeration value="is"><!--  für String und Datum --></xs:enumeration>
+			<xs:enumeration value="are"><!--  nur für Arrays --></xs:enumeration>
+			<xs:enumeration value="add"/>
+			<xs:enumeration value="assign plus"><!-- nur für Zahlen --></xs:enumeration>
+			<xs:enumeration value="assign minus"/>
+			<xs:enumeration value="assign multiply"/>
+			<xs:enumeration value="assign devide"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MessageNameCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Message"/>
+			<xs:enumeration value="Set Comment"/>
+			<xs:enumeration value="Warning"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ContentCardinalityCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="single"/>
+			<xs:enumeration value="multi"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DecisionLifeCycleStatusCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Planung"/>
+			<xs:enumeration value="Entwicklung"/>
+			<xs:enumeration value="Test"/>
+			<xs:enumeration value="Produktion"/>
+			<xs:enumeration value="Rückzug"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DecisionProcessingStatusCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="in Arbeit"/>
+			<xs:enumeration value="im Review"/>
+			<xs:enumeration value="freigegeben"/>
+			<xs:enumeration value="zurückgestellt"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BusinessDecisionId">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="BD[0-9]{4}_[0-9]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RuleFamilyId">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="RF[0-9]{4}_[0-9]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

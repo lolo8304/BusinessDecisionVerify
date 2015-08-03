@@ -1,0 +1,9 @@
+echo generate Html View Business Decision ...
+"%JAVA_HOME%\java" -jar %XALAN% -IN ..\input\%2.xml -XSL ..\visualisierung_v5/business_decision_html_view.xslt -OUT %1\%1_html_view.html
+echo generate Html View Testcases for Decision Tables ...
+"%JAVA_HOME%\java" -jar %XALAN% -IN ..\input\%2.xml -XSL ..\visualisierung_v5/business_decision_rulefamily_testcase_view.xslt -OUT %1\%1_rf_testcase_view.html
+echo generate Htlm View Concept Element Mapping ...
+"%JAVA_HOME%\java" -jar %XALAN% -IN ..\input\%3.xml -XSL ..\visualisierung_v5/business_decision_mapping_view.xslt -OUT %1\%1_concept_mapping_view.html
+echo .
+
+

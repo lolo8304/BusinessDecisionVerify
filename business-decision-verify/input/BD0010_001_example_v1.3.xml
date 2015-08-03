@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessDecision xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="business_decision_v1.3.xsd">
+	<decisionId>BD0010_001</decisionId>
+	<decisionName>Versandart Fragebogen bestimmen</decisionName>
+	<RuleFamily>
+		<ruleFamilyId>RF0044_001</ruleFamilyId>
+		<ruleFamilyName>Versandart Fragebogen</ruleFamilyName>
+		<numberOfHits>single Hit</numberOfHits>
+		<conditionFactTypeName>Liste Interview-Frage</conditionFactTypeName>
+		<conclusionFactTypeName>Versandart-Fragebogen</conclusionFactTypeName>
+		<Rule>
+			<rulePatternNo>1</rulePatternNo>
+			<sequenceNo>1</sequenceNo>
+			<Condition>
+				<factTypeName>Liste Interview-Frage</factTypeName>
+				<conditionOperatorName>include</conditionOperatorName>
+				<ConditionOperand>
+					<multiOperandValue>3</multiOperandValue>
+					<multiOperandValue>4</multiOperandValue>
+				</ConditionOperand>
+			</Condition>
+			<Conclusion>
+				<conclusionOperatorName>is</conclusionOperatorName>
+				<ConclusionOperand>
+					<singleOperandValue>eMail</singleOperandValue>
+				</ConclusionOperand>
+			</Conclusion>
+		</Rule>
+		<Rule>
+			<rulePatternNo>1</rulePatternNo>
+			<sequenceNo>2</sequenceNo>
+			<Condition>
+				<factTypeName>Liste Interview-Frage</factTypeName>
+				<conditionOperatorName>include</conditionOperatorName>
+				<ConditionOperand>
+					<multiOperandValue>5</multiOperandValue>
+					<multiOperandValue>6</multiOperandValue>
+				</ConditionOperand>
+			</Condition>
+			<Conclusion>
+				<conclusionOperatorName>is</conclusionOperatorName>
+				<ConclusionOperand>
+					<singleOperandValue>Post</singleOperandValue>
+				</ConclusionOperand>
+			</Conclusion>
+		</Rule>
+		<Rule>
+			<rulePatternNo>1</rulePatternNo>
+			<sequenceNo>3</sequenceNo>
+			<Condition>
+				<factTypeName>Liste Interview-Frage</factTypeName>
+				<conditionOperatorName>include</conditionOperatorName>
+				<ConditionOperand>
+					<multiOperandValue>7</multiOperandValue>
+					<multiOperandValue>8</multiOperandValue>
+				</ConditionOperand>
+			</Condition>
+			<Conclusion>
+				<conclusionOperatorName>is</conclusionOperatorName>
+				<ConclusionOperand>
+					<singleOperandValue>persönlich</singleOperandValue>
+				</ConclusionOperand>
+			</Conclusion>
+		</Rule>
+		<RuleFamily>
+			<ruleFamilyId>RF0043_001</ruleFamilyId>
+			<ruleFamilyName>Liste Interview-Frage</ruleFamilyName>
+			<numberOfHits>single Hit</numberOfHits>
+			<conditionFactTypeName>Beruf</conditionFactTypeName>
+			<conclusionFactTypeName>Liste Interview-Frage</conclusionFactTypeName>
+			<Rule>
+				<rulePatternNo>1</rulePatternNo>
+				<sequenceNo>1</sequenceNo>
+				<Condition>
+					<factTypeName>Beruf</factTypeName>
+					<conditionOperatorName>is one of</conditionOperatorName>
+					<ConditionOperand>
+						<multiOperandValue>Consultant</multiOperandValue>
+						<multiOperandValue>Controller</multiOperandValue>
+					</ConditionOperand>
+				</Condition>
+				<Conclusion>
+					<conclusionOperatorName>are</conclusionOperatorName>
+					<ConclusionOperand>
+						<multiOperandValue>1</multiOperandValue>
+						<multiOperandValue>2</multiOperandValue>
+						<multiOperandValue>3</multiOperandValue>
+						<multiOperandValue>4</multiOperandValue>
+					</ConclusionOperand>
+				</Conclusion>
+			</Rule>
+			<Rule>
+				<rulePatternNo>1</rulePatternNo>
+				<sequenceNo>2</sequenceNo>
+				<Condition>
+					<factTypeName>Beruf</factTypeName>
+					<conditionOperatorName>is one of</conditionOperatorName>
+					<ConditionOperand>
+						<multiOperandValue>Gärtner</multiOperandValue>
+						<multiOperandValue>Handwerker</multiOperandValue>
+					</ConditionOperand>
+				</Condition>
+				<Conclusion>
+					<conclusionOperatorName>are</conclusionOperatorName>
+					<ConclusionOperand>
+						<multiOperandValue>1</multiOperandValue>
+						<multiOperandValue>2</multiOperandValue>
+						<multiOperandValue>5</multiOperandValue>
+						<multiOperandValue>6</multiOperandValue>
+					</ConclusionOperand>
+				</Conclusion>
+			</Rule>
+			<Rule>
+				<rulePatternNo>1</rulePatternNo>
+				<sequenceNo>3</sequenceNo>
+				<Condition>
+					<factTypeName>Beruf</factTypeName>
+					<conditionOperatorName>is one of</conditionOperatorName>
+					<ConditionOperand>
+						<multiOperandValue>Verkäufer</multiOperandValue>
+						<multiOperandValue>Vertreter</multiOperandValue>
+					</ConditionOperand>
+				</Condition>
+				<Conclusion>
+					<conclusionOperatorName>are</conclusionOperatorName>
+					<ConclusionOperand>
+						<multiOperandValue>1</multiOperandValue>
+						<multiOperandValue>2</multiOperandValue>
+						<multiOperandValue>7</multiOperandValue>
+						<multiOperandValue>8</multiOperandValue>
+					</ConclusionOperand>
+				</Conclusion>
+			</Rule>		
+		</RuleFamily>
+	</RuleFamily>
+	<FactTypeGlossary>
+		<FactType>
+			<businessObject>Fragebogen</businessObject>
+			<factTypeName>Liste Interview-Frage</factTypeName>
+			<contentCardinality>multi</contentCardinality>
+			<dataType>Aufzählung</dataType>
+			<ValueRange>
+				<value>1</value>
+				<value>2</value>
+				<value>3</value>
+				<value>4</value>
+				<value>5</value>
+				<value>6</value>
+				<value>7</value>
+				<value>8</value>
+			</ValueRange>
+		</FactType>
+		<FactType>
+			<businessObject>Fragebogen</businessObject>
+			<factTypeName>Versandart-Fragebogen</factTypeName>
+			<contentCardinality>single</contentCardinality>
+			<dataType>Aufzählung</dataType>
+			<ValueRange>
+				<value>eMail</value>
+				<value>Post</value>
+				<value>persönlich</value>
+			</ValueRange>
+		</FactType>
+		<FactType>
+			<businessObject>Person</businessObject>
+			<factTypeName>Beruf</factTypeName>
+			<contentCardinality>single</contentCardinality>
+			<dataType>Aufzählung</dataType>
+			<ValueRange>
+				<value>Consultant</value>
+				<value>Controller</value>
+				<value>Gärtner</value>
+				<value>Handwerker</value>
+				<value>Verkäufer</value>
+				<value>Vertreter</value>
+			</ValueRange>
+		</FactType>
+	</FactTypeGlossary>
+</BusinessDecision>

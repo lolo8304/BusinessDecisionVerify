@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessDecision xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="business_decision_v1.3.xsd">
+	<decisionId>BD0020_001</decisionId>
+	<decisionName>Aussetzung Fahrerlaubnis bestimmen</decisionName>
+	<RuleFamily>
+		<ruleFamilyId>RF0055_001</ruleFamilyId>
+		<ruleFamilyName>Aussetzung Fahrerlaubnis</ruleFamilyName>
+		<numberOfHits>single Hit</numberOfHits>
+		<conditionFactTypeName>Test Physis</conditionFactTypeName>
+		<conditionFactTypeName>Test Psyche</conditionFactTypeName>
+		<conclusionFactTypeName>Aussetzung Fahrerlaubnis</conclusionFactTypeName>
+		<Rule>
+			<rulePatternNo>1</rulePatternNo>
+			<sequenceNo>1</sequenceNo>
+			<Condition>
+				<factTypeName>Test Physis</factTypeName>
+				<conditionOperatorName>is</conditionOperatorName>
+				<ConditionOperand>
+					<singleOperandValue>erforderlich</singleOperandValue>
+				</ConditionOperand>
+			</Condition>
+			<Conclusion>
+				<conclusionOperatorName>is</conclusionOperatorName>
+				<ConclusionOperand>
+					<singleOperandValue>erforderlich</singleOperandValue>
+				</ConclusionOperand>
+			</Conclusion>
+		</Rule>
+		<Rule>
+			<rulePatternNo>2</rulePatternNo>
+			<sequenceNo>2</sequenceNo>
+			<Condition>
+				<factTypeName>Test Physis</factTypeName>
+				<conditionOperatorName>is not</conditionOperatorName>
+				<ConditionOperand>
+					<singleOperandValue>erforderlich</singleOperandValue>
+				</ConditionOperand>
+			</Condition>
+			<Condition>
+				<factTypeName>Test Psyche</factTypeName>
+				<conditionOperatorName>is</conditionOperatorName>
+				<ConditionOperand>
+					<singleOperandValue>erforderlich</singleOperandValue>
+				</ConditionOperand>
+			</Condition>
+			<Conclusion>
+				<conclusionOperatorName>is</conclusionOperatorName>
+				<ConclusionOperand>
+					<singleOperandValue>erforderlich</singleOperandValue>
+				</ConclusionOperand>
+			</Conclusion>
+		</Rule>
+		<Rule>
+			<rulePatternNo>2</rulePatternNo>
+			<sequenceNo>3</sequenceNo>
+			<Condition>
+				<factTypeName>Test Physis</factTypeName>
+				<conditionOperatorName>is</conditionOperatorName>
+				<ConditionOperand>
+					<singleOperandValue>empfohlen</singleOperandValue>
+				</ConditionOperand>
+			</Condition>
+			<Condition>
+				<factTypeName>Test Psyche</factTypeName>
+				<conditionOperatorName>is not</conditionOperatorName>
+				<ConditionOperand>
+					<singleOperandValue>erforderlich</singleOperandValue>
+				</ConditionOperand>
+			</Condition>
+			<Conclusion>
+				<conclusionOperatorName>is</conclusionOperatorName>
+				<ConclusionOperand>
+					<singleOperandValue>erforderlich</singleOperandValue>
+				</ConclusionOperand>
+			</Conclusion>
+		</Rule>
+		<Rule>
+			<rulePatternNo>2</rulePatternNo>
+			<sequenceNo>4</sequenceNo>
+			<Condition>
+				<factTypeName>Test Physis</factTypeName>
+				<conditionOperatorName>is</conditionOperatorName>
+				<ConditionOperand>
+					<singleOperandValue>nicht erforderlich</singleOperandValue>
+				</ConditionOperand>
+			</Condition>
+			<Condition>
+				<factTypeName>Test Psyche</factTypeName>
+				<conditionOperatorName>is</conditionOperatorName>
+				<ConditionOperand>
+					<singleOperandValue>empfohlen</singleOperandValue>
+				</ConditionOperand>
+			</Condition>
+			<Conclusion>
+				<conclusionOperatorName>is</conclusionOperatorName>
+				<ConclusionOperand>
+					<singleOperandValue>empfohlen</singleOperandValue>
+				</ConclusionOperand>
+			</Conclusion>
+		</Rule>
+		<Rule>
+			<rulePatternNo>2</rulePatternNo>
+			<sequenceNo>5</sequenceNo>
+			<Condition>
+				<factTypeName>Test Physis</factTypeName>
+				<conditionOperatorName>is</conditionOperatorName>
+				<ConditionOperand>
+					<singleOperandValue>nicht erforderlich</singleOperandValue>
+				</ConditionOperand>
+			</Condition>
+			<Condition>
+				<factTypeName>Test Psyche</factTypeName>
+				<conditionOperatorName>is</conditionOperatorName>
+				<ConditionOperand>
+					<singleOperandValue>nicht erforderlich</singleOperandValue>
+				</ConditionOperand>
+			</Condition>
+			<Conclusion>
+				<conclusionOperatorName>is</conclusionOperatorName>
+				<ConclusionOperand>
+					<singleOperandValue>nicht erforderlich</singleOperandValue>
+				</ConclusionOperand>
+			</Conclusion>
+		</Rule>
+		<RuleFamily>
+			<ruleFamilyId>RF0054_001</ruleFamilyId>
+			<ruleFamilyName>Test Psyche</ruleFamilyName>
+			<numberOfHits>single Hit</numberOfHits>
+			<conditionFactTypeName>Bewertung Fahrverhalten</conditionFactTypeName>
+			<conclusionFactTypeName>Test Psyche</conclusionFactTypeName>
+			<Rule>
+				<rulePatternNo>1</rulePatternNo>
+				<sequenceNo>1</sequenceNo>
+				<Condition>
+					<factTypeName>Bewertung Fahrverhalten</factTypeName>
+					<conditionOperatorName>is</conditionOperatorName>
+					<ConditionOperand>
+						<singleOperandValue>gefährlich</singleOperandValue>
+					</ConditionOperand>
+				</Condition>
+				<Conclusion>
+					<conclusionOperatorName>is</conclusionOperatorName>
+					<ConclusionOperand>
+						<singleOperandValue>erforderlich</singleOperandValue>
+					</ConclusionOperand>
+				</Conclusion>
+			</Rule>
+			<Rule>
+				<rulePatternNo>1</rulePatternNo>
+				<sequenceNo>2</sequenceNo>
+				<Condition>
+					<factTypeName>Bewertung Fahrverhalten</factTypeName>
+					<conditionOperatorName>is</conditionOperatorName>
+					<ConditionOperand>
+						<singleOperandValue>auffällig</singleOperandValue>
+					</ConditionOperand>
+				</Condition>
+				<Conclusion>
+					<conclusionOperatorName>is</conclusionOperatorName>
+					<ConclusionOperand>
+						<singleOperandValue>empfohlen</singleOperandValue>
+					</ConclusionOperand>
+				</Conclusion>
+			</Rule>
+			<Rule>
+				<rulePatternNo>1</rulePatternNo>
+				<sequenceNo>3</sequenceNo>
+				<Condition>
+					<factTypeName>Bewertung Fahrverhalten</factTypeName>
+					<conditionOperatorName>is</conditionOperatorName>
+					<ConditionOperand>
+						<singleOperandValue>ok</singleOperandValue>
+					</ConditionOperand>
+				</Condition>
+				<Conclusion>
+					<conclusionOperatorName>is</conclusionOperatorName>
+					<ConclusionOperand>
+						<singleOperandValue>nicht erforderlich</singleOperandValue>
+					</ConclusionOperand>
+				</Conclusion>
+			</Rule>
+			<RuleFamily>
+				<ruleFamilyId>RF0053_001</ruleFamilyId>
+				<ruleFamilyName>Bewertung Fahrverhalten</ruleFamilyName>
+				<numberOfHits>single Hit</numberOfHits>
+				<conditionFactTypeName>Anzahl Verkehrsverstösse letzte 12 Monate</conditionFactTypeName>
+				<conditionFactTypeName>inkl. schwere Verkehrsverstösse</conditionFactTypeName>
+				<conclusionFactTypeName>Bewertung Fahrverhalten</conclusionFactTypeName>
+				<Rule>
+					<rulePatternNo>1</rulePatternNo>
+					<sequenceNo>1</sequenceNo>
+					<Condition>
+						<factTypeName>Anzahl Verkehrsverstösse letzte 12 Monate</factTypeName>
+						<conditionOperatorName>gt</conditionOperatorName>
+						<ConditionOperand>
+							<singleOperandValue>3</singleOperandValue>
+						</ConditionOperand>
+					</Condition>
+					<Condition>
+						<factTypeName>inkl. schwere Verkehrsverstösse</factTypeName>
+						<conditionOperatorName>is</conditionOperatorName>
+						<ConditionOperand>
+							<singleOperandValue>ja</singleOperandValue>
+						</ConditionOperand>
+					</Condition>
+					<Conclusion>
+						<conclusionOperatorName>is</conclusionOperatorName>
+						<ConclusionOperand>
+							<singleOperandValue>gefährlich</singleOperandValue>
+						</ConclusionOperand>
+					</Conclusion>
+				</Rule>
+				<Rule>
+					<rulePatternNo>1</rulePatternNo>
+					<sequenceNo>2</sequenceNo>
+					<Condition>
+						<factTypeName>Anzahl Verkehrsverstösse letzte 12 Monate</factTypeName>
+						<conditionOperatorName>gt</conditionOperatorName>
+						<ConditionOperand>
+							<singleOperandValue>3</singleOperandValue>
+						</ConditionOperand>
+					</Condition>
+					<Condition>
+						<factTypeName>inkl. schwere Verkehrsverstösse</factTypeName>
+						<conditionOperatorName>is</conditionOperatorName>
+						<ConditionOperand>
+							<singleOperandValue>nein</singleOperandValue>
+						</ConditionOperand>
+					</Condition>
+					<Conclusion>
+						<conclusionOperatorName>is</conclusionOperatorName>
+						<ConclusionOperand>
+							<singleOperandValue>auffällig</singleOperandValue>
+						</ConclusionOperand>
+					</Conclusion>
+				</Rule>
+				<Rule>
+					<rulePatternNo>2</rulePatternNo>
+					<sequenceNo>3</sequenceNo>
+					<Condition>
+						<factTypeName>Anzahl Verkehrsverstösse letzte 12 Monate</factTypeName>
+						<conditionOperatorName>lt</conditionOperatorName>
+						<ConditionOperand>
+							<singleOperandValue>3</singleOperandValue>
+						</ConditionOperand>
+					</Condition>
+					<Conclusion>
+						<conclusionOperatorName>is</conclusionOperatorName>
+						<ConclusionOperand>
+							<singleOperandValue>ok</singleOperandValue>
+						</ConclusionOperand>
+					</Conclusion>
+				</Rule>
+			</RuleFamily>
+		</RuleFamily>
+		<RuleFamily>
+			<ruleFamilyId>RF0052_001</ruleFamilyId>
+			<ruleFamilyName>Test Physis</ruleFamilyName>
+			<numberOfHits>single Hit</numberOfHits>
+			<conditionFactTypeName>Aktualität Reaktionstest</conditionFactTypeName>
+			<conditionFactTypeName>Aktualität Sehtest</conditionFactTypeName>
+			<conclusionFactTypeName>Test Physis</conclusionFactTypeName>
+			<Rule>
+				<rulePatternNo>1</rulePatternNo>
+				<sequenceNo>1</sequenceNo>
+				<Condition>
+					<factTypeName>Aktualität Reaktionstest</factTypeName>
+					<conditionOperatorName>is</conditionOperatorName>
+					<ConditionOperand>
+						<singleOperandValue>abgelaufen</singleOperandValue>
+					</ConditionOperand>
+				</Condition>
+				<Conclusion>
+					<conclusionOperatorName>is</conclusionOperatorName>
+					<ConclusionOperand>
+						<singleOperandValue>erforderlich</singleOperandValue>
+					</ConclusionOperand>
+				</Conclusion>
+			</Rule>
+			<Rule>
+				<rulePatternNo>2</rulePatternNo>
+				<sequenceNo>2</sequenceNo>
+				<Condition>
+					<factTypeName>Aktualität Reaktionstest</factTypeName>
+					<conditionOperatorName>is not</conditionOperatorName>
+					<ConditionOperand>
+						<singleOperandValue>abgelaufen</singleOperandValue>
+					</ConditionOperand>
+				</Condition>
+				<Condition>
+					<factTypeName>Aktualität Sehtest</factTypeName>
+					<conditionOperatorName>is</conditionOperatorName>
+					<ConditionOperand>
+						<singleOperandValue>abgelaufen</singleOperandValue>
+					</ConditionOperand>
+				</Condition>
+				<Conclusion>
+					<conclusionOperatorName>is</conclusionOperatorName>
+					<ConclusionOperand>
+						<singleOperandValue>erforderlich</singleOperandValue>
+					</ConclusionOperand>
+				</Conclusion>
+			</Rule>
+			<Rule>
+				<rulePatternNo>2</rulePatternNo>
+				<sequenceNo>3</sequenceNo>
+				<Condition>
+					<factTypeName>Aktualität Reaktionstest</factTypeName>
+					<conditionOperatorName>is</conditionOperatorName>
+					<ConditionOperand>
+						<singleOperandValue>veraltet</singleOperandValue>
+					</ConditionOperand>
+				</Condition>
+				<Condition>
+					<factTypeName>Aktualität Sehtest</factTypeName>
+					<conditionOperatorName>is not</conditionOperatorName>
+					<ConditionOperand>
+						<singleOperandValue>abgelaufen</singleOperandValue>
+					</ConditionOperand>
+				</Condition>
+				<Conclusion>
+					<conclusionOperatorName>is</conclusionOperatorName>
+					<ConclusionOperand>
+						<singleOperandValue>empfohlen</singleOperandValue>
+					</ConclusionOperand>
+				</Conclusion>
+			</Rule>
+			<Rule>
+				<rulePatternNo>2</rulePatternNo>
+				<sequenceNo>4</sequenceNo>
+				<Condition>
+					<factTypeName>Aktualität Reaktionstest</factTypeName>
+					<conditionOperatorName>is</conditionOperatorName>
+					<ConditionOperand>
+						<singleOperandValue>aktuell</singleOperandValue>
+					</ConditionOperand>
+				</Condition>
+				<Condition>
+					<factTypeName>Aktualität Sehtest</factTypeName>
+					<conditionOperatorName>is</conditionOperatorName>
+					<ConditionOperand>
+						<singleOperandValue>veraltet</singleOperandValue>
+					</ConditionOperand>
+				</Condition>
+				<Conclusion>
+					<conclusionOperatorName>is</conclusionOperatorName>
+					<ConclusionOperand>
+						<singleOperandValue>empfohlen</singleOperandValue>
+					</ConclusionOperand>
+				</Conclusion>
+			</Rule>
+			<Rule>
+				<rulePatternNo>2</rulePatternNo>
+				<sequenceNo>5</sequenceNo>
+				<Condition>
+					<factTypeName>Aktualität Reaktionstest</factTypeName>
+					<conditionOperatorName>is</conditionOperatorName>
+					<ConditionOperand>
+						<singleOperandValue>aktuell</singleOperandValue>
+					</ConditionOperand>
+				</Condition>
+				<Condition>
+					<factTypeName>Aktualität Sehtest</factTypeName>
+					<conditionOperatorName>is</conditionOperatorName>
+					<ConditionOperand>
+						<singleOperandValue>aktuell</singleOperandValue>
+					</ConditionOperand>
+				</Condition>
+				<Conclusion>
+					<conclusionOperatorName>is</conclusionOperatorName>
+					<ConclusionOperand>
+						<singleOperandValue>nicht erforderlich</singleOperandValue>
+					</ConclusionOperand>
+				</Conclusion>
+			</Rule>
+			<RuleFamily>
+				<ruleFamilyId>RF0051_001</ruleFamilyId>
+				<ruleFamilyName>Aktualität Sehtest</ruleFamilyName>
+				<numberOfHits>single Hit</numberOfHits>
+				<conditionFactTypeName>Alter Sehtest in Monaten</conditionFactTypeName>
+				<conclusionFactTypeName>Aktualität Sehtest</conclusionFactTypeName>
+				<Rule>
+					<rulePatternNo>1</rulePatternNo>
+					<sequenceNo>1</sequenceNo>
+					<Condition>
+						<factTypeName>Alter Sehtest in Monaten</factTypeName>
+						<conditionOperatorName>gt</conditionOperatorName>
+						<ConditionOperand>
+							<singleOperandValue>24</singleOperandValue>
+						</ConditionOperand>
+					</Condition>
+					<Conclusion>
+						<conclusionOperatorName>is</conclusionOperatorName>
+						<ConclusionOperand>
+							<singleOperandValue>abgelaufen</singleOperandValue>
+						</ConclusionOperand>
+					</Conclusion>
+				</Rule>
+				<Rule>
+					<rulePatternNo>1</rulePatternNo>
+					<sequenceNo>2</sequenceNo>
+					<Condition>
+						<factTypeName>Alter Sehtest in Monaten</factTypeName>
+						<conditionOperatorName>between</conditionOperatorName>
+						<ConditionOperand>
+							<MinMaxOperand>
+								<minValueIncluded>true</minValueIncluded>
+								<minOperandValue>18</minOperandValue>
+								<maxOperandValue>24</maxOperandValue>
+								<maxValueIncluded>true</maxValueIncluded>
+							</MinMaxOperand>
+						</ConditionOperand>
+					</Condition>
+					<Conclusion>
+						<conclusionOperatorName>is</conclusionOperatorName>
+						<ConclusionOperand>
+							<singleOperandValue>veraltet</singleOperandValue>
+						</ConclusionOperand>
+					</Conclusion>
+				</Rule>
+				<Rule>
+					<rulePatternNo>1</rulePatternNo>
+					<sequenceNo>3</sequenceNo>
+					<Condition>
+						<factTypeName>Alter Sehtest in Monaten</factTypeName>
+						<conditionOperatorName>lt</conditionOperatorName>
+						<ConditionOperand>
+							<singleOperandValue>18</singleOperandValue>
+						</ConditionOperand>
+					</Condition>
+					<Conclusion>
+						<conclusionOperatorName>is</conclusionOperatorName>
+						<ConclusionOperand>
+							<singleOperandValue>aktuell</singleOperandValue>
+						</ConclusionOperand>
+					</Conclusion>
+				</Rule>
+			</RuleFamily>
+			<RuleFamily>
+				<ruleFamilyId>RF0050_001</ruleFamilyId>
+				<ruleFamilyName>Aktualität Reaktionstest</ruleFamilyName>
+				<numberOfHits>single Hit</numberOfHits>
+				<conditionFactTypeName>Alter Reaktionstest in Monaten</conditionFactTypeName>
+				<conclusionFactTypeName>Aktualität Sehtest</conclusionFactTypeName>
+				<Rule>
+					<rulePatternNo>1</rulePatternNo>
+					<sequenceNo>1</sequenceNo>
+					<Condition>
+						<factTypeName>Alter Reaktionstest in Monaten</factTypeName>
+						<conditionOperatorName>gt</conditionOperatorName>
+						<ConditionOperand>
+							<singleOperandValue>12</singleOperandValue>
+						</ConditionOperand>
+					</Condition>
+					<Conclusion>
+						<conclusionOperatorName>is</conclusionOperatorName>
+						<ConclusionOperand>
+							<singleOperandValue>abgelaufen</singleOperandValue>
+						</ConclusionOperand>
+					</Conclusion>
+				</Rule>
+				<Rule>
+					<rulePatternNo>1</rulePatternNo>
+					<sequenceNo>2</sequenceNo>
+					<Condition>
+						<factTypeName>Alter Reaktionstest in Monaten</factTypeName>
+						<conditionOperatorName>between</conditionOperatorName>
+						<ConditionOperand>
+							<MinMaxOperand>
+								<minValueIncluded>true</minValueIncluded>
+								<minOperandValue>9</minOperandValue>
+								<maxOperandValue>12</maxOperandValue>
+								<maxValueIncluded>true</maxValueIncluded>
+							</MinMaxOperand>
+						</ConditionOperand>
+					</Condition>
+					<Conclusion>
+						<conclusionOperatorName>is</conclusionOperatorName>
+						<ConclusionOperand>
+							<singleOperandValue>veraltet</singleOperandValue>
+						</ConclusionOperand>
+					</Conclusion>
+				</Rule>
+				<Rule>
+					<rulePatternNo>1</rulePatternNo>
+					<sequenceNo>3</sequenceNo>
+					<Condition>
+						<factTypeName>Alter Reaktionstest in Monaten</factTypeName>
+						<conditionOperatorName>lt</conditionOperatorName>
+						<ConditionOperand>
+							<singleOperandValue>9</singleOperandValue>
+						</ConditionOperand>
+					</Condition>
+					<Conclusion>
+						<conclusionOperatorName>is</conclusionOperatorName>
+						<ConclusionOperand>
+							<singleOperandValue>aktuell</singleOperandValue>
+						</ConclusionOperand>
+					</Conclusion>
+				</Rule>
+			</RuleFamily>
+		</RuleFamily>
+	</RuleFamily>
+	<FactTypeGlossary>
+		<FactType>
+			<businessObject>Fahrer</businessObject>
+			<factTypeName>Aussetzung Fahrerlaubnis</factTypeName>
+			<contentCardinality>single</contentCardinality>
+			<dataType>Aufzählung</dataType>
+			<ValueRange>
+				<value>erforderlich</value>
+				<value>empfohlen</value>
+				<value>nicht erforderlich</value>
+			</ValueRange>
+		</FactType>
+		<FactType>
+			<businessObject>Physis-Test</businessObject>
+			<factTypeName>Alter Reaktionstest in Monaten</factTypeName>
+			<contentCardinality>single</contentCardinality>
+			<dataType>Zahl</dataType>
+			<SampleValue>
+				<value>5</value>
+				<value>8</value>
+				<value>9</value>
+				<value>12</value>
+				<value>15</value>
+				<value>18</value>
+				<value>24</value>
+				<value>25</value>
+			</SampleValue>
+		</FactType>
+		<FactType>
+			<businessObject>Physis-Test</businessObject>
+			<factTypeName>Aktualität Reaktionstest</factTypeName>
+			<contentCardinality>single</contentCardinality>
+			<dataType>Aufzählung</dataType>
+			<ValueRange>
+				<value>abgelaufen</value>
+				<value>veraltet</value>
+				<value>aktuell</value>
+			</ValueRange>
+		</FactType>
+		<FactType>
+			<businessObject>Physis-Test</businessObject>
+			<factTypeName>Alter Sehtest in Monaten</factTypeName>
+			<contentCardinality>single</contentCardinality>
+			<dataType>Zahl</dataType>
+			<SampleValue>
+				<value>5</value>
+				<value>8</value>
+				<value>9</value>
+				<value>11</value>
+				<value>12</value>
+				<value>13</value>
+				<value>14</value>
+				<value>15</value>
+			</SampleValue>
+		</FactType>
+		<FactType>
+			<businessObject>Physis-Test</businessObject>
+			<factTypeName>Aktualität Sehtest</factTypeName>
+			<contentCardinality>single</contentCardinality>
+			<dataType>Aufzählung</dataType>
+			<ValueRange>
+				<value>abgelaufen</value>
+				<value>veraltet</value>
+				<value>aktuell</value>
+			</ValueRange>
+		</FactType>
+		<FactType>
+			<businessObject>Physis-Test</businessObject>
+			<factTypeName>Test Physis</factTypeName>
+			<contentCardinality>single</contentCardinality>
+			<dataType>Aufzählung</dataType>
+			<ValueRange>
+				<value>erforderlich</value>
+				<value>empfohlen</value>
+				<value>nicht erforderlich</value>
+			</ValueRange>
+		</FactType>
+		<FactType>
+			<businessObject>Phycho-Test</businessObject>
+			<factTypeName>Anzahl Verkehrsverstösse letzte 12 Monate</factTypeName>
+			<contentCardinality>single</contentCardinality>
+			<dataType>Zahl</dataType>
+			<SampleValue>
+				<value>1</value>
+				<value>2</value>
+				<value>3</value>
+				<value>4</value>
+				<value>5</value>
+				<value>6</value>
+				<value>7</value>
+				<value>8</value>
+				<value>9</value>
+			</SampleValue>
+		</FactType>
+		<FactType>
+			<businessObject>Phycho-Test</businessObject>
+			<factTypeName>Bewertung Fahrverhalten</factTypeName>
+			<contentCardinality>single</contentCardinality>
+			<dataType>Aufzählung</dataType>
+			<ValueRange>
+				<value>gefährlich</value>
+				<value>auffällig</value>
+				<value>ok</value>
+			</ValueRange>
+		</FactType>
+		<FactType>
+			<businessObject>Phycho-Test</businessObject>
+			<factTypeName>Test Psyche</factTypeName>
+			<contentCardinality>single</contentCardinality>
+			<dataType>Aufzählung</dataType>
+			<ValueRange>
+				<value>erforderlich</value>
+				<value>empfohlen</value>
+				<value>nicht erforderlich</value>
+			</ValueRange>
+		</FactType>
+		<FactType>
+			<businessObject>Phycho-Test</businessObject>
+			<factTypeName>inkl. schwere Verkehrsverstösse</factTypeName>
+			<contentCardinality>single</contentCardinality>
+			<dataType>Aufzählung</dataType>
+			<ValueRange>
+				<value>ja</value>
+				<value>nein</value>
+			</ValueRange>
+		</FactType>		
+	</FactTypeGlossary>
+</BusinessDecision>

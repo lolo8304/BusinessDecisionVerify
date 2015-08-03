@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2015 rel. 3 sp1 (http://www.altova.com) by AXA Tech (AXA Technology Services) -->
+<!--  
+Fachbegriff-Element-Mapping für Decision Model
+
+basierend auf dem Modell Business Decision Version x.y by Wilfried Kurth, C723649
+
+letzte Änderungen Version 1:
+- 13.07.2015: initial Version,  (Wilfried Kurth, C723649)
+
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
+	<xs:element name="ConceptElementMapping" type="CT_ConceptElementMapping"/>
+	<xs:complexType name="CT_ConceptElementMapping">
+		<xs:sequence>
+			<xs:element name="decisionId" type="DecisionId" minOccurs="1"/>
+			<xs:element name="ConceptElement" type="CT_ConceptElement" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CT_ConceptElement">
+		<xs:sequence>
+			<xs:element name="businessObject" type="xs:string" minOccurs="1"/>
+			<xs:element name="factTypeName" type="xs:string" minOccurs="1"/>
+			<xs:element name="variableName" type="xs:string" minOccurs="1"/>
+			<xs:element name="businessConcept" type="xs:string" minOccurs="1"/>
+			<xs:element name="attributeName" type="xs:string" minOccurs="1"/>
+			<xs:element name="domainKey" type="DomainKeyCode" minOccurs="1"/>
+			<xs:element name="CodeNaming" type="CT_CodeNaming" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CT_CodeNaming">
+		<xs:sequence>
+			<xs:element name="code" type="xs:string" minOccurs="1"/>
+			<xs:element name="naming" type="xs:string" minOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="DecisionId">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="BD[0-9]{4}_[0-9]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DomainKeyCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CHAR"/>
+			<xs:enumeration value="CHAR_LONG"/>
+			<xs:enumeration value="CHAR_DATE"/>
+			<xs:enumeration value="CHAR_TIME"/>
+			<xs:enumeration value="CHAR_TMSTP"/>
+			<xs:enumeration value="SMALLINT"/>
+			<xs:enumeration value="INTEGER"/>
+			<xs:enumeration value="BIGINT"/>
+			<xs:enumeration value="DECIMAL"/>
+			<xs:enumeration value="FLOAT_SNGL"/>
+			<xs:enumeration value="FLOAT_DBL"/>
+			<xs:enumeration value="BOOLEAN"/>
+			<xs:enumeration value="OCTET"/>
+			<xs:enumeration value="OCTET_LONG"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

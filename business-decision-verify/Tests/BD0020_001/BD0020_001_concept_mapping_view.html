@@ -1,0 +1,311 @@
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Business Decision BD0020_001 Concept Element Mapping</title>
+<style type="text/css">
+body {
+   font-family: Arial;
+   font-size: 75%;
+   background-color:white;
+   color: #000;
+   margin-left:5em;
+}
+* {
+margin: 0;
+padding: 0;
+}
+h1,h2,h3 {margin-bottom:0.25em; margin-top:1em;}
+p {margin-bottom:0.5em;}
+table, th, td {
+   border:1px solid black;
+   border-spacing:0;
+   border-collapse:collapse;
+   padding:0.2em;
+   table-layout:fixed
+   font-size: 75%;
+   font-weight:normal;
+}
+.th_nr {
+   font-size:70%;
+}
+.th_nr_head {
+   width:4em;
+   vertical-align:bottom;
+}
+.th_comment_head {
+   vertical-align:bottom;
+   background-color:#66ccff;   
+}
+.th_error_head {
+   background-color:#ff4500; 
+   text-align:left;
+}
+.th_head {
+   font-weight:bold;
+   text-align:left;
+   background-color:#000000;
+   color:#ffffff;
+}
+.th_condition {
+   background-color:#66ffff;
+}
+.th_conclusion {
+   background-color:#66ccff;
+}
+.th_glossary_head {
+   background-color:#e8e8e8;
+   font-weight:bold;
+   text-align:left;
+}
+.th_glossary {
+   text-align:left;
+}
+.th_d_info {
+   text-align: left;
+   width: 30em;
+}
+.th_d_info_descr {
+   background-color:#e8e8e8;
+   text-align: left;
+   font-weight:bold;
+}
+</style>
+</head>
+<body>
+<h2>Business Decision</h2>
+<hr>
+<h1>BD0020_001 -  Concept Element Mapping
+			    </h1> 
+					(nur f&uuml;r internen Gebrauch) 
+				<br>
+<br>
+<table>
+<thead>
+<tr>
+<th colspan="6" class="th_head">Concept Element Mapping for Business Decision BD0020_001</th>
+</tr>
+<tr>
+<th class="th_glossary_head">Gesch&auml;ftsobjekt</th><th class="th_glossary_head">Faktentyp</th><th class="th_glossary_head">Variable Name</th><th class="th_glossary_head">Business Concept</th><th class="th_glossary_head">Attribute Name</th><th class="th_glossary_head">DomainKey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="th_glossary">Fahrer</th><th class="th_glossary">Aussetzung Fahrerlaubnis</th><th class="th_glossary">AUSSETZUNG_FAHR_ERLAUBNIS_CDMF</th><th class="th_glossary">Fahrer</th><th class="th_glossary">austzgFahrErlaubCdmf</th><th class="th_glossary">SMALLINT</th>
+</tr>
+<tr>
+<th class="th_glossary">Physis-Test</th><th class="th_glossary">Alter Reaktionstest in Monaten</th><th class="th_glossary">ALTER_REAKTION_TEST_IN_MONAT</th><th class="th_glossary">PhysisTest</th><th class="th_glossary">alterReaktnTestInMonat</th><th class="th_glossary">SMALLINT</th>
+</tr>
+<tr>
+<th class="th_glossary">Physis-Test</th><th class="th_glossary">Aktualit&auml;t Reaktionstest</th><th class="th_glossary">AKTUALITAET_REAKTION_TEST_CDMF</th><th class="th_glossary">PhysisTest</th><th class="th_glossary">aktlttReaktnTestCdmf</th><th class="th_glossary">SMALLINT</th>
+</tr>
+<tr>
+<th class="th_glossary">Physis-Test</th><th class="th_glossary">Alter Sehtest in Monaten</th><th class="th_glossary">ALTER_SEH_TEST_IN_MONAT</th><th class="th_glossary">PhysisTest</th><th class="th_glossary">alterSehTestInMonat</th><th class="th_glossary">SMALLINT</th>
+</tr>
+<tr>
+<th class="th_glossary">Physis-Test</th><th class="th_glossary">Aktualit&auml;t Sehtest</th><th class="th_glossary">AKTUALITAET_SEH_TEST_CDMF</th><th class="th_glossary">PhysisTest</th><th class="th_glossary">aktlttSehTestCdmf</th><th class="th_glossary">SMALLINT</th>
+</tr>
+<tr>
+<th class="th_glossary">Physis-Test</th><th class="th_glossary">Test Physis</th><th class="th_glossary">TEST_PHYSIS_CDMF</th><th class="th_glossary">PhysisTest</th><th class="th_glossary">testPhysisCdmf</th><th class="th_glossary">SMALLINT</th>
+</tr>
+<tr>
+<th class="th_glossary">Psycho-Test</th><th class="th_glossary">Anzahl Verkehrsverst&ouml;sse letzte 12 Monate</th><th class="th_glossary">ANZAHL_VERKEHR_VERSTOSS_IN_12_MONAT</th><th class="th_glossary">PsychoTest</th><th class="th_glossary">anzVkehrVstssIn12Monat</th><th class="th_glossary">SMALLINT</th>
+</tr>
+<tr>
+<th class="th_glossary">Psycho-Test</th><th class="th_glossary">inkl. schwere Verkehrsverst&ouml;sse</th><th class="th_glossary">KZ_VERKEHR_VERSTOSS_SCHWER_INKLUSIV</th><th class="th_glossary">PsychoTest</th><th class="th_glossary">kzVkehrVstssSchwerInkl</th><th class="th_glossary">SMALLINT</th>
+</tr>
+<tr>
+<th class="th_glossary">Psycho-Test</th><th class="th_glossary">Bewertung Fahrverhalten</th><th class="th_glossary">BEWERTUNG_FAHR_VERHALTEN_CDMF</th><th class="th_glossary">PsychoTest</th><th class="th_glossary">bwrtgFahrVhltnCdmf</th><th class="th_glossary">SMALLINT</th>
+</tr>
+<tr>
+<th class="th_glossary">Psycho-Test</th><th class="th_glossary">Test Psyche</th><th class="th_glossary">TEST_PSYCHE_CDMF</th><th class="th_glossary">PsychoTest</th><th class="th_glossary">testPsycheCdmf</th><th class="th_glossary">SMALLINT</th>
+</tr>
+</tbody>
+</table>
+<br>
+<hr>
+<h2>Code Mappings</h2>
+<br>
+<table>
+<thead>
+<tr>
+<th colspan="2" class="th_head">Code Mapping zu Aussetzung Fahrerlaubnis</th>
+</tr>
+<tr>
+<th colspan="2" class="th_glossary">Attribut: Fahrer austzgFahrErlaubCdmf</th>
+</tr>
+<tr>
+<th class="th_glossary_head">Code</th><th class="th_glossary_head">Bezeichnung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="th_glossary">1</th><th class="th_glossary">erforderlich</th>
+</tr>
+<tr>
+<th class="th_glossary">2</th><th class="th_glossary">empfohlen</th>
+</tr>
+<tr>
+<th class="th_glossary">3</th><th class="th_glossary">nicht erforderlich</th>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<table>
+<thead>
+<tr>
+<th colspan="2" class="th_head">Code Mapping zu Aktualit&auml;t Reaktionstest</th>
+</tr>
+<tr>
+<th colspan="2" class="th_glossary">Attribut: PhysisTest aktlttReaktnTestCdmf</th>
+</tr>
+<tr>
+<th class="th_glossary_head">Code</th><th class="th_glossary_head">Bezeichnung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="th_glossary">1</th><th class="th_glossary">abgelaufen</th>
+</tr>
+<tr>
+<th class="th_glossary">2</th><th class="th_glossary">veraltet</th>
+</tr>
+<tr>
+<th class="th_glossary">3</th><th class="th_glossary">aktuell</th>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<table>
+<thead>
+<tr>
+<th colspan="2" class="th_head">Code Mapping zu Aktualit&auml;t Sehtest</th>
+</tr>
+<tr>
+<th colspan="2" class="th_glossary">Attribut: PhysisTest aktlttSehTestCdmf</th>
+</tr>
+<tr>
+<th class="th_glossary_head">Code</th><th class="th_glossary_head">Bezeichnung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="th_glossary">1</th><th class="th_glossary">abgelaufen</th>
+</tr>
+<tr>
+<th class="th_glossary">2</th><th class="th_glossary">veraltet</th>
+</tr>
+<tr>
+<th class="th_glossary">3</th><th class="th_glossary">aktuell</th>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<table>
+<thead>
+<tr>
+<th colspan="2" class="th_head">Code Mapping zu Test Physis</th>
+</tr>
+<tr>
+<th colspan="2" class="th_glossary">Attribut: PhysisTest testPhysisCdmf</th>
+</tr>
+<tr>
+<th class="th_glossary_head">Code</th><th class="th_glossary_head">Bezeichnung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="th_glossary">1</th><th class="th_glossary">erforderlich</th>
+</tr>
+<tr>
+<th class="th_glossary">2</th><th class="th_glossary">empfohlen</th>
+</tr>
+<tr>
+<th class="th_glossary">3</th><th class="th_glossary">nicht erforderlich</th>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<table>
+<thead>
+<tr>
+<th colspan="2" class="th_head">Code Mapping zu inkl. schwere Verkehrsverst&ouml;sse</th>
+</tr>
+<tr>
+<th colspan="2" class="th_glossary">Attribut: PsychoTest kzVkehrVstssSchwerInkl</th>
+</tr>
+<tr>
+<th class="th_glossary_head">Code</th><th class="th_glossary_head">Bezeichnung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="th_glossary">0</th><th class="th_glossary">nein</th>
+</tr>
+<tr>
+<th class="th_glossary">1</th><th class="th_glossary">ja</th>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<table>
+<thead>
+<tr>
+<th colspan="2" class="th_head">Code Mapping zu Bewertung Fahrverhalten</th>
+</tr>
+<tr>
+<th colspan="2" class="th_glossary">Attribut: PsychoTest bwrtgFahrVhltnCdmf</th>
+</tr>
+<tr>
+<th class="th_glossary_head">Code</th><th class="th_glossary_head">Bezeichnung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="th_glossary">1</th><th class="th_glossary">gef&auml;hrlich</th>
+</tr>
+<tr>
+<th class="th_glossary">2</th><th class="th_glossary">auff&auml;llig</th>
+</tr>
+<tr>
+<th class="th_glossary">3</th><th class="th_glossary">ok</th>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<table>
+<thead>
+<tr>
+<th colspan="2" class="th_head">Code Mapping zu Test Psyche</th>
+</tr>
+<tr>
+<th colspan="2" class="th_glossary">Attribut: PsychoTest testPsycheCdmf</th>
+</tr>
+<tr>
+<th class="th_glossary_head">Code</th><th class="th_glossary_head">Bezeichnung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="th_glossary">1</th><th class="th_glossary">erforderlich</th>
+</tr>
+<tr>
+<th class="th_glossary">2</th><th class="th_glossary">empfohlen</th>
+</tr>
+<tr>
+<th class="th_glossary">3</th><th class="th_glossary">nicht erforderlich</th>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<br>
+<hr>
+<small>Schemaversion: fachbegriff_element_mapping_v0.1.xsd</small>
+</body>
+</html>

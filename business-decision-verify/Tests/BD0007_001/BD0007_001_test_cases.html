@@ -1,0 +1,293 @@
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Business Decision  - Testcases</title>
+<style type="text/css">
+body {
+   font-family: Arial;
+   font-size: 75%;
+   background-color:white;
+   color: #000;
+   margin-left:5em;
+}
+* {
+margin: 0;
+padding: 0;
+}
+h1,h2,h3 {margin-bottom:0.25em; margin-top:1em;}
+p {margin-bottom:0.5em;}
+table, th, td {
+   border:1px solid black;
+   border-spacing:0;
+   border-collapse:collapse;
+   padding:0.2em;
+   table-layout:fixed
+   font-size: 75%;
+   font-weight:normal;
+}
+.th_nr {
+   font-size:70%;
+}
+.th_nr_head {
+   width:4em;
+   vertical-align:bottom;
+}
+.th_comment_head {
+   vertical-align:bottom;
+   background-color:#66ccff;   
+}
+.th_error_head {
+   background-color:#ff4500; 
+   text-align:left;
+}
+.th_head {
+   font-weight:bold;
+   text-align:left;
+   background-color:#000000;
+   color:#ffffff;
+}
+.th_condition {
+   background-color:#66ffff;
+}
+.th_conclusion {
+   background-color:#66ccff;
+}
+.th_glossary_head {
+   background-color:#e8e8e8;
+   font-weight:bold;
+   text-align:left;
+}
+.th_glossary {
+   text-align:left;
+}
+.th_d_info {
+   text-align: left;
+   width: 30em;
+}
+.th_d_info_descr {
+   background-color:#e8e8e8;
+   text-align: left;
+   font-weight:bold;
+}
+</style>
+</head>
+<body>
+<h2>Business Decision Model</h2>
+<hr>
+<h1>BD0007_001 - Ausfallwahrscheinlichkeit bestimmen</h1> 
+					(nur f&uuml;r internen Gebrauch) 
+				<br>
+<br>
+<h2>Testf&auml;lle dieser Business Decision</h2>
+<br>
+<table>
+<thead>
+<tr>
+<th class="th_nr_head" rowspan="3">Nr.</th><th class="th_head" colspan="7">Test Cases Ausfallwahrscheinlichkeit bestimmen</th>
+</tr>
+<tr>
+<th class="th_condition">Input</th><th class="th_condition">Input</th><th class="th_condition">Input</th><th class="th_condition">Input</th><th class="th_condition">Input</th><th class="th_conclusion">expected Output</th>
+</tr>
+<tr>
+<th class="th_condition">Hypothekenbelastung</th><th class="th_condition">Studentenkredit</th><th class="th_condition">Konsumkredit</th><th class="th_condition">Anzahl Jahre aktueller Job</th><th class="th_condition">Anzahl Jobs letzte 5 Jahre</th><th class="th_conclusion">Ausfallwahrscheinlichkeit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>1</th><th>hoch</th><th>hoch</th><th>hoch</th><th>0</th><th>1</th><th>hoch</th>
+</tr>
+<tr>
+<th>2</th><th>hoch</th><th>hoch</th><th>hoch</th><th>0</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>3</th><th>hoch</th><th>hoch</th><th>hoch</th><th>1</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>4</th><th>hoch</th><th>hoch</th><th>hoch</th><th>1</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>5</th><th>hoch</th><th>hoch</th><th>hoch</th><th>5</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>6</th><th>hoch</th><th>hoch</th><th>hoch</th><th>5</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>7</th><th>hoch</th><th>hoch</th><th>hoch</th><th>6</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>8</th><th>hoch</th><th>hoch</th><th>hoch</th><th>6</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>9</th><th>hoch</th><th>hoch</th><th>niedrig</th><th>0</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>10</th><th>hoch</th><th>hoch</th><th>niedrig</th><th>0</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>11</th><th>hoch</th><th>hoch</th><th>niedrig</th><th>1</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>12</th><th>hoch</th><th>hoch</th><th>niedrig</th><th>1</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>13</th><th>hoch</th><th>hoch</th><th>niedrig</th><th>5</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>14</th><th>hoch</th><th>hoch</th><th>niedrig</th><th>5</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>15</th><th>hoch</th><th>hoch</th><th>niedrig</th><th>6</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>16</th><th>hoch</th><th>hoch</th><th>niedrig</th><th>6</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>17</th><th>hoch</th><th>niedrig</th><th>hoch</th><th>0</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>18</th><th>hoch</th><th>niedrig</th><th>hoch</th><th>0</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>19</th><th>hoch</th><th>niedrig</th><th>hoch</th><th>1</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>20</th><th>hoch</th><th>niedrig</th><th>hoch</th><th>1</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>21</th><th>hoch</th><th>niedrig</th><th>hoch</th><th>5</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>22</th><th>hoch</th><th>niedrig</th><th>hoch</th><th>5</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>23</th><th>hoch</th><th>niedrig</th><th>hoch</th><th>6</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>24</th><th>hoch</th><th>niedrig</th><th>hoch</th><th>6</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>25</th><th>hoch</th><th>niedrig</th><th>niedrig</th><th>0</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>26</th><th>hoch</th><th>niedrig</th><th>niedrig</th><th>0</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>27</th><th>hoch</th><th>niedrig</th><th>niedrig</th><th>1</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>28</th><th>hoch</th><th>niedrig</th><th>niedrig</th><th>1</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>29</th><th>hoch</th><th>niedrig</th><th>niedrig</th><th>5</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>30</th><th>hoch</th><th>niedrig</th><th>niedrig</th><th>5</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>31</th><th>hoch</th><th>niedrig</th><th>niedrig</th><th>6</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>32</th><th>hoch</th><th>niedrig</th><th>niedrig</th><th>6</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>33</th><th>gering</th><th>hoch</th><th>hoch</th><th>0</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>34</th><th>gering</th><th>hoch</th><th>hoch</th><th>0</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>35</th><th>gering</th><th>hoch</th><th>hoch</th><th>1</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>36</th><th>gering</th><th>hoch</th><th>hoch</th><th>1</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>37</th><th>gering</th><th>hoch</th><th>hoch</th><th>5</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>38</th><th>gering</th><th>hoch</th><th>hoch</th><th>5</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>39</th><th>gering</th><th>hoch</th><th>hoch</th><th>6</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>40</th><th>gering</th><th>hoch</th><th>hoch</th><th>6</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>41</th><th>gering</th><th>hoch</th><th>niedrig</th><th>0</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>42</th><th>gering</th><th>hoch</th><th>niedrig</th><th>0</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>43</th><th>gering</th><th>hoch</th><th>niedrig</th><th>1</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>44</th><th>gering</th><th>hoch</th><th>niedrig</th><th>1</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>45</th><th>gering</th><th>hoch</th><th>niedrig</th><th>5</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>46</th><th>gering</th><th>hoch</th><th>niedrig</th><th>5</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>47</th><th>gering</th><th>hoch</th><th>niedrig</th><th>6</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>48</th><th>gering</th><th>hoch</th><th>niedrig</th><th>6</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>49</th><th>gering</th><th>niedrig</th><th>hoch</th><th>0</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>50</th><th>gering</th><th>niedrig</th><th>hoch</th><th>0</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>51</th><th>gering</th><th>niedrig</th><th>hoch</th><th>1</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>52</th><th>gering</th><th>niedrig</th><th>hoch</th><th>1</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>53</th><th>gering</th><th>niedrig</th><th>hoch</th><th>5</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>54</th><th>gering</th><th>niedrig</th><th>hoch</th><th>5</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>55</th><th>gering</th><th>niedrig</th><th>hoch</th><th>6</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>56</th><th>gering</th><th>niedrig</th><th>hoch</th><th>6</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>57</th><th>gering</th><th>niedrig</th><th>niedrig</th><th>0</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>58</th><th>gering</th><th>niedrig</th><th>niedrig</th><th>0</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>59</th><th>gering</th><th>niedrig</th><th>niedrig</th><th>1</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>60</th><th>gering</th><th>niedrig</th><th>niedrig</th><th>1</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>61</th><th>gering</th><th>niedrig</th><th>niedrig</th><th>5</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>62</th><th>gering</th><th>niedrig</th><th>niedrig</th><th>5</th><th>2</th><th></th>
+</tr>
+<tr>
+<th>63</th><th>gering</th><th>niedrig</th><th>niedrig</th><th>6</th><th>1</th><th></th>
+</tr>
+<tr>
+<th>64</th><th>gering</th><th>niedrig</th><th>niedrig</th><th>6</th><th>2</th><th></th>
+</tr>
+</tbody>
+</table>
+<br>
+<hr>
+</body>
+</html>

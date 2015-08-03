@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><BusinessDecisionTest decisionId="BD0010_001" decisionName="Versandart Fragebogen bestimmen" paramCount="1">
+<!--test cases for the Business Decision BD0010_001-->
+<decisionParameter contentCardinality="single">Beruf</decisionParameter>
+<decisionConclusion contentCardinality="single">Versandart-Fragebogen</decisionConclusion>
+<testCase>
+<value>Consultant</value>
+<expectedOutput/>
+</testCase>
+<testCase>
+<value>Controller</value>
+<expectedOutput/>
+</testCase>
+<testCase>
+<value>Gärtner</value>
+<expectedOutput/>
+</testCase>
+<testCase>
+<value>Handwerker</value>
+<expectedOutput/>
+</testCase>
+<testCase>
+<value>Verkäufer</value>
+<expectedOutput/>
+</testCase>
+<testCase>
+<value>Vertreter</value>
+<expectedOutput/>
+</testCase>
+</BusinessDecisionTest>
