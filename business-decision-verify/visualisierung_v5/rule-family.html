@@ -1,76 +1,32 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="refresh" content="200">
-		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-	</head>
-<body>
-	
-	<script>
-function createSVGtext(caption, x, y, fontSize) {
-	    //  This function attempts to create a new svg "text" element, chopping 
-	    //  it up into "tspan" pieces, if the caption is too long
-	    //
-	    var svgText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-	    svgText.setAttributeNS(null, 'x', x);
-	    svgText.setAttributeNS(null, 'y', y);
-	    svgText.setAttributeNS(null, 'font-size', fontSize);
-	    svgText.setAttributeNS(null, 'fill', '#0e347f');         //  White text
-	    svgText.setAttributeNS(null, 'text-anchor', 'middle');   //  Center the text
-	
-	    //  The following two variables should really be passed as parameters
-	    var MAXIMUM_CHARS_PER_LINE = 20;
-	    var LINE_HEIGHT = fontSize+2;
-	
-	    var words = caption.split(" ");
-	    var line = "";
-	
-	    for (var n = 0; n < words.length; n++) {
-	        var testLine = line + words[n] + " ";
-	        if (testLine.length > MAXIMUM_CHARS_PER_LINE)
-	        {
-	            //  Add a new <tspan> element
-	            var svgTSpan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
-	            svgTSpan.setAttributeNS(null, 'x', x);
-	            svgTSpan.setAttributeNS(null, 'y', y);
-	
-	            var tSpanTextNode = document.createTextNode(line);
-	            svgTSpan.appendChild(tSpanTextNode);
-	            svgText.appendChild(svgTSpan);
-	
-	            line = words[n] + " ";
-	            y += LINE_HEIGHT;
-	        }
-	        else {
-	            line = testLine;
-	        }
-	    }
-	
-	    var svgTSpan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
-	    svgTSpan.setAttributeNS(null, 'x', x);
-	    svgTSpan.setAttributeNS(null, 'y', y);
-	
-	    var tSpanTextNode = document.createTextNode(line);
-	    svgTSpan.appendChild(tSpanTextNode);
-	
-	    svgText.appendChild(svgTSpan);
-	
-	    return svgText;
-	}
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta http-equiv="refresh" content="10">
+    <script type='text/javascript' src="svg.js"></script>
+    <script type='text/javascript' src="svg.draggable.js"></script>
+    <script type='text/javascript' src="svg.import.js"></script>
+    <script type='text/javascript' src="svg.filter.js"></script>
+    <script type='text/javascript' src="svg.export.js"></script>
+    <script type='text/javascript' src="svg.easing.js"></script>
+    <script type='text/javascript' src="svg.shapes.js"></script>
+    <script type='text/javascript' src="svg.topath.js"></script>
+    <script type='text/javascript' src="svg.parser.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-	</script>
+    <style type='text/css'>
+      html, body, #drawing {
+      margin: 0;
+      height: 100%;
+  }
+    </style>
+  </head>
+  
+  <body>
+    <div id="drawing"></div>
+    <script type='text/javascript' src="rules-svg.js">
+    </script>
 
-<!-- http://stackoverflow.com/questions/19484707/how-can-i-make-an-svg-scale-with-its-parent-container-->
-<svg id="rule-family" width="400" viewBox="20 0 120 100">
-	<polygon points="40,10 80,10 100,30 100,70 80,90 40,90 20,70 20,30 40,10"
-  	 style="fill:#d3ffff;stroke:#6b98ab;stroke-width:2;fill-rule:nonzero;">
-	</polygon>
-</svg>
-<script>
-	var pos = $('#rule-family').position();
-	var svgText = createSVGtext("BD0020_001 Aussetzung Fahrerlaubnis bestimmen", "50%", pos.top+20, 8);
-	$('#rule-family').append(svgText);
-</script>
+  </body>
 
-</body>
 </html>
