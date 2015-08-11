@@ -40,13 +40,25 @@ var testrules = {
     ]
 }
 
-createDiagram(group, testrules)
-group.animate().scale(0.5, 0.5)
+var rules_BD0020_001 = {
+    'key': 'BD0020_001',
+    'text' : 'Aussetzung Fahrerlaubnis bestimmen',
+    'families' : [
+        [ 'BD0020_001', 'RF0055_001', 'Aussetzung Fahrerlaubnis'],
+            [ 'RF0055_001', 'RF0054_001', 'Test Psyche'],
+                [ 'RF0054_001', 'RF0053_001', 'Bewertung Fahrverhalten'],
+            [ 'RF0055_001', 'RF0052_001', 'Test Physis'],
+                [ 'RF0052_001', 'RF0051_001', 'Sehtest'],
+                [ 'RF0052_001', 'RF0050_001', 'Reaktionstest']
+    ]
+}
+
+createDiagram(group, rules_BD0020_001)
 
 function createDiagram(group, ruleStructure) {
-    var key = testrules['key']
-    var text = testrules['text']
-    var families = testrules['families']
+    var key = ruleStructure['key']
+    var text = ruleStructure['text']
+    var families = ruleStructure['families']
     var elementCache = {}
     
     elementCache[key] = createRoot(group, key+'-'+text)
@@ -56,12 +68,11 @@ function createDiagram(group, ruleStructure) {
         var childText = families[i][2]
         var parent = elementCache[parentKey]
         if (parent) {
-            //if (childKey == 'RF0051_007') { debugger }
             if (!elementCache[childKey]) {
                 elementCache[childKey] = addFamily(parent, childKey+'-'+childText)
             } else {
               console.log('error child arlready exists '+childKey)
-            throw 'error child arlready exists '+childKey
+    	            throw 'error child arlready exists '+childKey
             }
         } else {
             console.log('error parent not found '+parentKey)
