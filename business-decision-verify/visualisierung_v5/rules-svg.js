@@ -1,7 +1,7 @@
 /* create an svg drawing */
 
-function drawRuleFamilyGraph() {
 var draw = SVG('drawing')
+
 
 var boxDiff = 20
 
@@ -12,48 +12,248 @@ var boxDiff = 20
 var group = draw.nested()
 var ruleSymbol = draw.defs()
 
-var ruleDef = ruleSymbol.polygon("40,00 80,00 100,20 100,60 80,80 40,80 20,60 20,20 40,00").fill('#d3ffff').stroke({ color: '#6b98ab', width: 2 })
-
-var familyDef = ruleSymbol.polygon("20,00 100,00 120,20 120,80 00,80 00,20 20,00")
+var ruleDef = ruleSymbol.polygon("30,00 70,00 100,30 100,70 70,100 30,100 00,70 00,30 30,00")
+    .fill('#d3ffff').stroke({ color: '#6b98ab', width: 2 })
+var familyDef = ruleSymbol.polygon("20,00 120,00 140,20 140,80 00,80 00,20 20,00")
     .fill('#d3fdda').stroke({ color: '#6b98ab', width: 2 })
 var familyDef_box = familyDef.rbox()
 
-var rule = group.use(ruleDef).move(50,0)
-var rule_box = rule.rbox()
+group.move(20,20)
 
-var familyGroup = group.group()
-    .addClass('group-rule-family')
-    .attr('id', 'group-rule-family-0')
-    .attr('group-id', 'group-rule-family-0')
-    .attr('parent-group-id', '')
-    .attr('nof-kids', 0)
-    .attr('total-nof-kids', 0)
+var testrules = {
+    'key': 'BD0020_001',
+    'text' : 'Aussetzung Fahrerlaubnis bestimmen',
+    'families' : [
+        [ 'BD0020_001', 'RF0055_001', 'Aussetzung Fahrerlaubnis'],
+            [ 'RF0055_001', 'RF0054_001', 'Test Psyche'],
+                [ 'RF0054_001', 'RF0051_001', 'Bewertung Fahrverhalten'],
+                   [ 'RF0051_001', 'RF0051_002', 'Bewertung Fahrverhalten2'],
+                [ 'RF0054_001', 'RF0051_003', 'Bewertung Fahrverhalten3'],
+                [ 'RF0054_001', 'RF0051_004', 'Bewertung Fahrverhalten4'],
+                    [ 'RF0051_004', 'RF0051_007', 'Bewertung Fahrverhalten7'],
+                    [ 'RF0051_004', 'RF0051_008', 'Bewertung Fahrverhalten8'],
+            [ 'RF0055_001', 'RF0052_001', 'Test Physis'],
+                [ 'RF0052_001', 'RF0055_002', 'Sehtest'],
+                [ 'RF0052_001', 'RF0050_001', 'Reaktionstest'],
+                    [ 'RF0050_001', 'RF0050_002', 'Reaktionstest2'],
+                    [ 'RF0050_001', 'RF0050_003', 'Reaktionstest3']
+    ]
+}
 
-var family = familyGroup.use(familyDef).move(
-    rule_box.x+rule_box.w/2-familyDef_box.w/2, 
-    rule_box.y2+boxDiff)
-    .attr('id', 'rule-family-0')
-    .attr('group-id', 'group-rule-family-0')
-    .attr('parent-id', '')
-    .attr('parent-group-id', '')
-var family_box = family.rbox()
-familyGroup.path('M'+(family_box.x+family_box.w/2)+" "+family_box.y+" v-"+boxDiff)
-        .fill('none').stroke({ color: '#6b98ab', width: 3 })
+createDiagram(group, testrules)
+group.animate().scale(0.5, 0.5)
 
-group.dmove(300,50)
+function createDiagram(group, ruleStructure) {
+    var key = testrules['key']
+    var text = testrules['text']
+    var families = testrules['families']
+    var elementCache = {}
+    
+    elementCache[key] = createRoot(group, key+'-'+text)
+    for (i=0; i<families.length; ++i) {
+        var parentKey = families[i][0]
+        var childKey = families[i][1]
+        var childText = families[i][2]
+        var parent = elementCache[parentKey]
+        if (parent) {
+            //if (childKey == 'RF0051_007') { debugger }
+            if (!elementCache[childKey]) {
+                elementCache[childKey] = addFamily(parent, childKey+'-'+childText)
+            } else {
+              console.log('error child arlready exists '+childKey)
+            throw 'error child arlready exists '+childKey
+            }
+        } else {
+            console.log('error parent not found '+parentKey)
+            throw 'error parent not found '+parentKey
+        }
+    }
+}
 
-var childrenArray = addChildFamilies(family, 3)
-var childrenArray1  = addChildFamilies(childrenArray[0], 2)
-var childrenArray2  = addChildFamilies(childrenArray[1], 1)
-var childrenArray3  = addChildFamilies(childrenArray[2], 1)
-/*
-var childrenArray11 = addChildFamilies(childrenArray1[0], 1)
-var childrenArray12 = addChildFamilies(childrenArray1[1], 1)
+function createTextInBox(group, node, text) {
+    var bbox = node.rbox()
+    var t = group.text(text.replace(/-/g, ': ').replace(/ /g, '\n'))
+        .font({
+          family:   'Helvetica'
+            , size:     12
+            , anchor:   'bottom'
+            , leading:  '1'
+        })
+    var textbbox = t.rbox()
+    t
+        .dx(bbox.x + bbox.w/2 - textbbox.w/2)
+        .dy(bbox.y + bbox.h/2 - textbbox.h/2)
 
-var childrenArray21 = addChildFamilies(childrenArray2[0], 1)
-var childrenArray22 = addChildFamilies(childrenArray2[1], 1)
-*/
-//group.move('25%', 20)
+}
+function createRoot(group, text) {
+    var familyGroup = group.group()
+    	.addClass('group-rule-family')
+    var familyGroupElement = familyGroup.group()
+        .addClass('group-element')
+    var familyElement = familyGroupElement
+        .use(ruleDef)
+    createTextInBox(familyGroupElement, familyElement, text)
+
+    familyGroup.group()
+        .addClass('group-children')
+    familyGroup.group()
+        .addClass('group-connector')
+    return familyGroup
+}
+
+/*familyGroup.path('M'+(family_box.x+family_box.w/2)+" "+family_box.y+" v-"+boxDiff)
+        .fill('none').stroke({ color: '#6b98ab', width: 3 })*/
+
+function balanceGroup(group, sortChildren) {
+    if (group.hasClass('group-rule-family')) {
+        var parentElementGroup = group.first()
+        var parentChildrenGroup = group.get(1)
+        if (sortChildren) {
+            var lastX2 = 0;
+            parentChildrenGroup.each(function(i) {
+                var thisElem = this.first()
+                var thisChildren = this.get(1)
+                var thisConnector = this.get(2)
+                thisConnector.first().remove()
+                var childrenBox = thisChildren.rbox()
+                if (i > 0) {
+                    //var thisbox = this.rbox()
+                    var elementBox = thisElem.rbox()
+                    lastX2 += boxDiff
+                    if (childrenBox.w > 0) {
+                        thisElem.move(childrenBox.w/2-elementBox.w/2, 0)
+                        lastX2 += childrenBox.w
+                    } else {
+                        lastX2 += elementBox.w
+                    }
+                } else {
+                    lastX2 = childrenBox.x2
+                }
+            })
+        }
+        var elementBox = parentElementGroup.rbox()        
+        var childrenBox = parentChildrenGroup.rbox()
+        
+        if (childrenBox.w/2-elementBox.w/2 != elementBox.x) {
+            parentElementGroup.move(childrenBox.w/2-elementBox.w/2)
+        }
+        parentChildrenGroup.each(function(i) {
+            connectFamilies(
+                this.get(2),
+                parentElementGroup,
+                this.first()
+            )
+        })
+        balanceGroup(getParentGroup(group), true)
+    }
+}
+
+/* creates a new child unter existing family
+    family is first element in its own group (parent)
+    family parent group has 2 elements: familiy, children
+    and is positioned right after the last one
+ */
+function addFamily(parentFamilyGroup, text) {
+    /* get bbox from 2nd element in group */
+    var parentElementGroup = parentFamilyGroup.first()
+    var parentChildrenGroup = parentFamilyGroup.get(1)
+    var parentConnectorGroup = parentFamilyGroup.get(2)
+
+    var topPos = parentElementGroup.rbox().y2 + boxDiff
+    var startPos = parentChildrenGroup.rbox().x2
+    /* if children already in bucket then increment by a seperator */
+    if (parentChildrenGroup.first()) { 
+        startPos = parentChildrenGroup.rbox().x2 + boxDiff
+    } else {
+        startPos = parentElementGroup.rbox().x
+    }
+
+    /* create a group for whole rule-family and children within children of parent*/
+    var familyGroup = parentChildrenGroup.group()
+        .addClass('group-rule-family')
+        .attr('id', 'group-rule-family-'+text)
+    /* create a 1st  group for rule-family and add it to group
+        position it right after the last child of parent including diff
+    */
+    var elementGroup = familyGroup.group()
+            .addClass('group-element')
+    var familyNew = elementGroup.use(familyDef)
+        .addClass('rule-family')
+        .move(
+            startPos, topPos
+        )
+    createTextInBox(elementGroup, familyNew, text)
+    /* create a 2nd empty group for children */
+    familyGroup.group()
+        .addClass('group-children')
+    var connectorGroup = familyGroup.group()
+        .addClass('group-connector')
+    balanceGroup(parentFamilyGroup, false)
+    connectFamilies(
+        connectorGroup,
+        parentElementGroup,
+        elementGroup)
+    return familyGroup
+}
+
+/* connectors */
+function connectFamilies(connectorGroup, parentFamily, childFamily) {
+    if (connectorGroup.first()) {
+        connectorGroup.first().remove()
+    }
+    var pbox = parentFamily.rbox();
+    var cbox = childFamily.rbox();
+    var pathString = null
+    var pathColor = null
+    if (pbox.cx > cbox.cx) {
+        pathString = 
+            "M "+
+            (pbox.x)+" "+
+            (pbox.y + pbox.h/2)+" "+
+            "h-"+(pbox.x - cbox.x - cbox.w/2)+" v "+(pbox.h/2+boxDiff)
+        pathColor = '#6b98ab'
+    } else if (pbox.cx < cbox.cx) {
+        pathString = 
+            "M "+
+            (pbox.x2)+" "+
+            (pbox.y + pbox.h/2)+" "+
+            "h"+(cbox.x - pbox.x - cbox.w/2)+" v "+(pbox.h/2+boxDiff)
+        pathColor = '#6b98ab'
+    } else {
+        pathString = 
+            "M "+
+            (pbox.x+pbox.w/2)+" "+
+            pbox.y2+" "+
+            " v "+(boxDiff)
+        pathColor = '#6b98ab'
+    }
+    var connector = connectorGroup.path(pathString)
+    connector.fill('none')
+            .stroke({ color: pathColor, width: 3 })
+            .addClass('rule-connector')
+}
+
+/* helper funcions */
+
+function forEachChildGroup(group, callback) {
+    group.each(function(i) {
+        if (this.hasClass('group-rule-family')) {
+            callback(group.first(), this)
+        }
+    })
+}
+
+function getParentGroup(group) {
+    if (group.hasClass('group-rule-family')) {
+        return group.parent().parent()
+    } else if (group.hasClass('group-children')) {
+        return group.parent()
+    } else if (group.hasClass('group-children')) {
+        return group.parent()
+    } else {
+        return null
+    }
+}
 
 function selectClass (node, className) {
     var children = [];
@@ -64,246 +264,3 @@ function selectClass (node, className) {
     })
     return children
 }
-
-function connectFamilies(group, parentFamily, childFamily) {
-    var connectors = selectClass(group, 'rule-connector')
-    var connector = connectors[0]
-    var diffX = 0
-    var max = maxLeftRight(group)
-    if (connector) {
-    	diffX = group.rbox().x - group.bbox().x
-    }
-    var pbox = parentFamily.rbox();
-    var cbox = childFamily.rbox();
-    var pathString = null
-    var pathColor = null
-    if (pbox.x > cbox.x) {
-        pathString = 
-            "M "+
-            (pbox.x-diffX)+" "+
-            (pbox.y + pbox.h/2)+" "+
-            "h-"+(pbox.x - cbox.x - diffX - cbox.w/2)+" v "+(pbox.h/2+boxDiff)
-        pathColor = '#FF0000'
-    } else if (pbox.x < cbox.x) {
-        pathString = 
-            "M "+
-            (pbox.x2-diffX)+" "+
-            (pbox.y + pbox.h/2)+" "+
-            "h"+(cbox.x - pbox.x + diffX - cbox.w/2)+" v "+(pbox.h/2+boxDiff)
-        pathColor = '#000000'
-    } else {
-        pathString = 
-            "M "+
-            (pbox.x+pbox.w/2)+" "+
-            pbox.y2+" "+
-            " v "+(boxDiff)
-        pathColor = '#6b98ab'
-    }
-    if (connector) {
-        pathColor = '#008000'
-        connector.plot(pathString)
-    } else {
-        connector = group.path(pathString)
-    }
-    connector.fill('none')
-            .stroke({ color: pathColor, width: 3 })
-            .addClass('rule-connector')
-            .attr('parent-id', parentFamily.attr('id'))
-            .attr('id', 'connector-'+childFamily.attr('id'))
-}
-
-
-function addChildFamilies(family, nof) {
-    var children = []
-    var group = family.parent()
-    var bbox = family.rbox()
-    var parentId = family.attr('id')
-    var totalW = nof * (bbox.w +  boxDiff) - boxDiff
-    var leftStart = bbox.x + bbox.w/2 - totalW / 2
-    var topStart = bbox.y2 + boxDiff
-    var i = 0
-    while (i < nof) {
-        var familyGroupNew = group.group()
-            .addClass('group-rule-family')
-            .attr('parent-group-id', 'group-'+parentId)
-            .attr('id', 'group-'+parentId+'.'+i)
-            .attr('group-id', 'group-'+parentId+'.'+i)
-            .attr('nof-kids', 0)
-            .attr('total-nof-kids', 0)
-        var familyNew = familyGroupNew.use(familyDef).addClass('rule-family').move(
-                leftStart,
-                topStart
-            )
-            .attr('parent-group-id', 'group-'+parentId)
-            .attr('parent-id', parentId)
-            .attr('group-id', 'group-'+parentId+'.'+i)
-            .attr('id', parentId+'.'+i)
-        connectFamilies(familyGroupNew, family, familyNew)
-        leftStart = leftStart + bbox.w + boxDiff;
-        children.push(familyNew)
-        i++;
-    }
-    incAttr(group, 'nof-kids', nof)
-    updateParentKids(group, nof)
-//    alert('done adding to '+group.attr('id'))
-    return children;
-}
-
-
-function totalWidthOfChildren(group) {
-    var totalWidth = 0
-    forEachChildGroup(group, function(topFamily, childGroup) {
-        var childWidth = groupWidthNoConnectors(childGroup)
-        totalWidth = totalWidth + childWidth + boxDiff
-    })
-    totalWidth = totalWidth - boxDiff
-    return totalWidth
-}
-
-function updateParentKids(group, nof) {
-    incAttr(group, 'total-nof-kids', nof)
-    var parentGroup = getParentGroup(group)
-    if (parentGroup) {
-        if (nof > 0) {
-            var totalWidth = totalWidthOfChildren(parentGroup)        
-            var parentFamily = parentGroup.first()
-            
-            //var fbox = parentGroup.rbox()
-            var fbox = parentFamily.rbox()
-            var leftStart = fbox.x + fbox.w/2 - totalWidth / 2
-                console.log('left start = '+leftStart)
-            forEachChildGroup(parentGroup, function(topFamily, childGroup) {
-                var minMax = maxLeftRight(childGroup)
-                var diff = leftStart-minMax[0]
-                if (diff != 0) {
-                    console.log('move '+childGroup.attr('id')+' to '+ leftStart)
-                    childGroup.move(leftStart, 0)
-                    connectFamilies(childGroup, parentFamily, childGroup.first())
-                } else {
-                    console.log('no move '+childGroup.attr('id'))
-                }
-                leftStart = leftStart + minMax[1]-minMax[0] + boxDiff
-                console.log('left start = '+leftStart)
-            })
-        }
-        updateParentKids(parentGroup, nof)
-    }
-}
-
-
-/* helper funcions */
-
-
-function forEachChildGroup(group, callback) {
-    group.each(function(i) {
-        if (this.hasClass('group-rule-family')) {
-            callback(group.first(), this)
-        }
-    })
-}
-
-function getParentGroup(node) {
-    if (node.attr('parent-group-id') != '') {
-        return getGroupElemById(node.attr('parent-group-id'))
-    } else {
-        return null
-    }
-}
-function getGroup(node) {
-    return getGroupElemById(node.attr('group-id'))
-}
-
-
-function incAttr(node, attr, nof) {
-    node.attr(attr, node.attr(attr) + nof)
-//    console.log('update '+node.attr('id')+"."+attr+' = '+node.attr(attr))
-}
-
-
-function parentId(id) {
-    var pos = id.lastIndexOf('.')
-    if (pos < 0) {
-        pos = id.lastIndexOf('-')
-    }
-    return id.substr(0, pos)
-}
-function previousId(id) {
-    var pos = id.lastIndexOf('.');
-    if (pos < 0) {
-        pos = id.lastIndexOf('-');
-    }
-    var prefix = id.substr(0, pos+1)
-    var idNo = id.substr(pos+1)    
-    var no = parseInt(idNo, 10)
-    if (no == 0) return null;
-    no--
-    return prefix+no;
-}
-
-function nextId(id) {
-    var pos = id.lastIndexOf('.');
-    if (pos < 0) {
-        pos = id.lastIndexOf('-');
-    }
-    var prefix = id.substr(0, pos+1)
-    var idNo = id.substr(pos+1)    
-    var no = parseInt(idNo, 10)
-    if (no == 0) return null;
-    no++
-    return prefix+no;
-}
-
-function getGroupElemById(id) {
-    if (id) {
-        if (!id.startsWith('group-')) {
-            id = 'group-'+id
-        }
-        var idElem = document.getElementById(id)
-        if (idElem) {
-            return idElem.instance
-        }
-    }
-    return null
-}
-
-function getConnectorById(id) {
-    if (id) {
-        if (!id.startsWith('rule-connector-')) {
-            id = 'rule-connector-'+id
-        }
-        var idElem = document.getElementById(id)
-        if (idElem) {
-            return idElem.instance
-        }
-    }
-    return null
-}
-
-function maxLeftRightInner(node, maxLeftRightArray) {
-    node.each(function(i) {
-        if (this.hasClass('rule-family')) {
-            maxLeftRightArray[0] = Math.min(this.rbox().x, maxLeftRightArray[0])
-            maxLeftRightArray[1] = Math.max(this.rbox().x2, maxLeftRightArray[1])
-        } else if (this.hasClass('group-rule-family')) {
-            maxLeftRightInner(this, maxLeftRightArray)
-        }
-    })
-}
-
-function maxLeftRight(group) {
-    var minMax = [Number.MAX_SAFE_INTEGER,Number.MIN_SAFE_INTEGER]
-    maxLeftRightInner(group, minMax)
-    return minMax
-}
-
-function groupWidthNoConnectors(group) {
-    var minMax = maxLeftRight(group)
-    return minMax[1] - minMax[0]
-}
-
-
-
-}
-
-
-drawRuleFamilyGraph()
